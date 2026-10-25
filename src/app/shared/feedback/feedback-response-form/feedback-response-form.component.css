@@ -1,0 +1,44 @@
+.feedback-response-form {
+    padding: 12px; margin: -8px 8px 0 8px; border-radius: var(--pane-border-radius); border: solid 1px var(--border-color);
+}
+
+.feedback-response-form.edit-response {
+    border: none; border-radius: 0; margin-top: -16px; background-color: transparent;
+}
+
+.feedback-response-form h1 {
+    margin: 0 0 12px 4px; font-size: 1rem;
+}
+
+.feedback-response-form.edit-response h1 {
+    margin: 12px 0 24px 4px; font-size: 1.1rem;
+}
+
+#feedback-response-form-content {
+    width: 100%; height: 9rem;
+}
+
+.quick-reply-pane {
+    margin-bottom: 8px; padding: 0 6px 4px 6px; border-radius: 6px;
+}
+
+.quick-reply-pane-header {
+    display: flex; padding: 0 0 4px 0; margin-bottom: 4px; align-items: center;
+}
+
+.quick-reply-pane-header h1 {
+    font-size: 1rem; flex-grow: 1; margin: 0;
+}
+
+.quick-reply-content {
+    display: flex; flex-direction: column; padding-bottom: 6px; justify-content: center;
+}
+
+.quick-reply {
+    border-radius: var(--pane-border-radius); padding: 8px 12px; margin: 1px 0; max-height: 4rem; overflow-y: auto; cursor: pointer;
+    background-color: rgb(247, 247, 247);
+}
+
+.quick-reply:hover {
+    background-color: var(--button-flat-hover-bg-color);
+}

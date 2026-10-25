@@ -1,0 +1,60 @@
+<ul class="toolbar no-border">
+    <li><button class="btn btn-flat" (click)="backToBooks()"><i class="fa fa-chevron-circle-left"></i>Books</button></li>
+</ul>
+
+<div *ngIf="isLoading">
+    <h1>Chapters</h1>
+    <app-loading></app-loading>
+</div>
+
+<div *ngIf="!isLoading && error">
+    <h1>Chapters</h1>
+    <app-page-error [error]="error"></app-page-error>
+</div>
+
+<div *ngIf="!isLoading && !error && book">
+
+    <div style="margin: 12px 0 16px 0">
+        <app-book-header [book]="book"></app-book-header>
+    </div>
+
+    <header class="book-page-header">
+        <div class="stats-pane" [class.highlight]="totalUnreviewedFeedback > 0">
+            <div class="stats-name">Unread Feedback</div>
+            <div class="stats-value">{{ totalUnreviewedFeedback }}</div>
+        </div>
+        <div class="stats-pane" [class.highlight]="totalUnreviewedResponses > 0">
+            <div class="stats-name">Unread Replies</div>
+            <div class="stats-value">{{ totalUnreviewedResponses }}</div>
+        </div>
+    </header>
+
+    <table *ngIf="book.chapters.length > 0" class="table light">
+        <tr>
+            <th class="chapter-table-title" colspan="2"><h1>Chapters</h1></th>
+            <th class="center">Versions</th>
+            <th class="center">Unread<br>Feedback</th>
+            <th class="center">Unread<br>Replies</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let chapter of book.chapters">
+            <td>{{ chapter.chapter_index }}</td>
+            <td class="chapter-title">{{ chapter.title }}</td>
+            <td class="stat">{{ chapter.version_count }}</td>
+            <td class="stat">
+                <span [class.highlight]="chapter.unread_feedback_count > 0">{{ chapter.unread_feedback_count }}</span>
+            </td>
+            <td class="stat">
+                <span [class.highlight]="chapter.unread_response_count > 0">{{ chapter.unread_response_count }}</span>
+            </td>
+            <td class="actions">
+                <button class="btn btn-flat" (click)="viewFeedback(chapter.id)"><i class="fa fa-list"></i>Feedback</button>
+            </td>
+        </tr>
+    </table>
+
+    <div *ngIf="book.chapters.length === 0">
+        <div class="pane">No chapters found for the current book</div>
+    </div>
+
+</div>

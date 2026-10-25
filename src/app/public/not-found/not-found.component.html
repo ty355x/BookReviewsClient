@@ -1,0 +1,6 @@
+<div id="not-found">
+    <h1>404</h1>
+    <p>The specified page was not found</p>
+    <button *ngIf="showHomeButton" (click)="goHome()" class="btn btn-flat"><i class="fa fa-home"></i>Home</button>
+    <button *ngIf="showLoginButton" (click)="goLogin()" class="btn btn-flat"><i class="fa fa-sign-in"></i>Log In</button>
+</div>

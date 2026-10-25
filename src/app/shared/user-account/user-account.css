@@ -1,0 +1,24 @@
+.account-header-pane {
+    text-align: center; margin-top: 32px; margin-bottom: 12px;
+}
+
+.account-pane-outer {
+    box-shadow: var(--pane-shadow); padding: 24px 0 12px 0; width: 40%; min-width: 640px; display: flex; justify-content: center;
+    margin: 0 auto; border-radius: 4px; background-color: var(--pane-bg-color);
+}
+
+.account-pane-outer.no-header {
+    margin-top: 65px;
+}
+
+.account-pane {
+    min-width: 600px; padding: 0 32px;
+}
+
+.account-pane h1 {
+    margin-top: 0;
+}
+
+.details-field label {
+    width: 150px; display: inline-block;
+}

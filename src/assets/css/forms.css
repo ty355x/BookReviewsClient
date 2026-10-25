@@ -1,0 +1,41 @@
+.form-field {
+    margin-bottom: 12px;
+}
+
+.form-field label {
+    display: block; margin-bottom: 8px; font-weight: 500; color: rgb(78, 78, 78);
+}
+
+.form-field label.bold {
+    font-weight: bold;
+}
+
+.form-field .textbox, .form-field .select {
+    width: 300px;
+}
+
+.form-field-error {
+    display: block; color: var(--dialog-field-error-color); margin-top: 4px;
+}
+
+.form-footer {
+    padding-top: 12px;
+}
+
+.textbox {
+    border: solid 1px var(--border-color); padding: 4px; border-radius: 4px; outline: none; font-size: 1rem;
+    background-color: var(--pane-bg-color);
+}
+
+.textarea {
+    width: 600px; border: solid 1px var(--border-color); padding: 8px; border-radius: 4px; resize: none;
+    outline: none; font-size: 1rem; background-color: var(--pane-bg-color);
+}
+
+.select {
+    border: solid 1px var(--border-color); padding: 4px; border-radius: 4px; background-color: var(--pane-bg-color); font-size: 1rem;
+}
+
+.textbox:disabled, .select:disabled {
+    background-color: rgb(237, 237, 237); color: rgb(189, 189, 189);
+}

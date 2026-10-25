@@ -1,0 +1,68 @@
+html.light-theme {
+    --pane-border-radius: 4px;
+
+    --site-bg-color: rgb(250, 250, 250);
+    --site-header-bg-color: rgb(20, 81, 134);
+    --site-header-title-color: white;
+    --site-header-menu-link-color: white;
+    --text-color: rgb(40, 40, 40);
+    --text-light-color: rgb(241, 241, 241);
+    --link-color: rgb(0, 56, 152);
+
+    --header-color: rgb(78, 78, 78);
+    --header-med-color: rgb(109, 109, 109);
+    --header-light-color: rgb(133, 133, 133);
+    --header-alt-color: rgb(77, 101, 133);
+
+    --border-color: rgb(212, 212, 212);
+    --pane-bg-color: rgb(255, 255, 255);
+    --pane-bg-light-color: rgb(216, 226, 232);
+    --pane-bg-dark-color: rgb(181, 201, 215);
+    --pane-bg-fail-color: rgb(225, 193, 193);
+    --dialog-field-error-color: rgb(210, 18, 18);
+    --med-dark-color: rgb(64, 64, 64);
+
+    --table-header-bg-color: rgb(233, 233, 233);
+
+    --button-text-color: rgb(255, 255, 255);
+    --button-bg-color: rgb(63, 130, 192);
+    --button-hover-bg-color: rgb(64, 147, 210);
+    --button-active-bg-color: rgb(55, 126, 181);
+    --button-disabled-bg-color: rgb(211, 211, 211);
+
+    --button-light-text-color: rgb(0, 109, 187);
+    --button-light-bg-color: rgb(217, 221, 223);
+    --button-light-hover-bg-color: rgb(190, 219, 229);
+    --button-light-active-bg-color: rgb(172, 209, 224);
+
+    --button-med-text-color: rgb(20, 105, 174);
+    --button-med-border-color: rgb(62, 140, 205);
+    --button-med-bg-color: white;
+    --button-med-hover-bg-color: rgb(234, 245, 255);
+    --button-med-active-bg-color: rgb(207, 224, 240);
+
+    --button-flat-text-color: rgb(8, 127, 206);
+    --button-flat-disabled-text-color: rgb(184, 184, 184);
+    --button-flat-hover-bg-color: rgb(203, 230, 244);
+    --button-flat-active-bg-color: rgb(189, 218, 233);
+
+    --success-color: rgb(123, 165, 23);
+    --fail-color: rgb(172, 6, 6);
+    --fail-med-color: rgb(222, 131, 131);
+    --info-color: rgb(36, 116, 213);
+    --fail-light-color: rgb(181, 144, 144);
+
+    --pane-shadow: 0 0 1px 1px rgb(223, 223, 223);
+    --pane-light-shadow: 0 0 3px 2px rgb(225, 225, 225);
+    --feedback-pane-border: solid 1px rgb(217, 217, 217);
+
+    --stats-bg-color: rgb(195, 204, 206);
+    --warn-bg-color: rgb(190, 97, 88);
+    --success-bg-color: rgb(101, 163, 76);
+
+    --stats-light-bg-color: rgb(210, 213, 218);
+    --warn-light-bg-color: rgb(218, 204, 204);
+    --success-light-bg-color: rgb(209, 220, 206);
+
+    --item-hover-bg-color: rgb(206, 224, 236);
+}

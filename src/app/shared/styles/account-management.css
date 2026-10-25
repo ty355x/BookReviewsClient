@@ -1,0 +1,73 @@
+/* Page Wraper */
+
+.page-wrapper {
+    width: 100vw; min-height: 100vh; background-color: rgb(27, 61, 101); z-index: -1;
+    display: flex; align-items: center; justify-content: center; padding: 8px;
+}
+
+/* Pane */
+
+.pane {
+    background-color: white; padding: 32px 24px 6px 24px; border-radius: 2px;
+}
+
+.pane h1 {
+    margin: 0 0 32px 0; text-align: center; text-transform: uppercase; font-weight: 600; color: rgb(85, 85, 85);
+    font-size: 20px;
+}
+
+/* Form */
+
+.form-field label {
+    display: block; font-weight: 600; margin-bottom: 8px; color: rgb(101, 101, 101);
+}
+
+.form-field .textbox {
+    display: block; margin-bottom: 20px; border: none; border-radius: 2px;
+    padding: 8px; border: solid 1px rgb(195, 195, 195); outline: none; width: 100%;
+}
+
+.form-field .textbox:disabled {
+    background-color: rgb(247, 247, 247); border: solid 2px rgb(246, 246, 246); color: rgb(193, 193, 193);
+}
+
+.form-footer {
+    text-align: center; margin-top: 0; padding-top: 0;
+}
+
+/* Buttons */
+
+.btn-form {
+    padding: 10px 32px; background-color: rgb(21, 129, 165); border-radius: 2px; border: none; display: block;
+    cursor: pointer; font-weight: 500; color: white; margin-bottom: 12px;
+}
+
+.btn-form.wide {
+    width: 100%;
+}
+
+.btn-form:hover:enabled {
+    background-color: rgb(37, 149, 186);
+}
+
+.btn-form:active:enabled {
+    background-color: rgb(16, 104, 151)
+}
+
+.btn-form:disabled, .btn-form[disabled]:hover {
+    cursor: default; background-color: rgb(212, 212, 212);
+}
+
+.btn-flat {
+    display: block; text-align: center; margin-bottom: 12px; padding: 8px 0; border-radius: 2px;
+}
+
+.btn-flat.wide {
+    width: 100%;
+}
+
+/* Errors */
+
+.form-error {
+    color: rgb(236, 0, 0); background-color: rgb(255, 243, 243); padding: 0 1px; border-radius: 6px; font-weight: 500;
+}

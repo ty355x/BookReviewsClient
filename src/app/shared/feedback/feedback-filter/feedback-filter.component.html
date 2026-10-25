@@ -1,0 +1,73 @@
+<div *ngIf="context !== null && context.showFeedbackLoading" style="margin: 24px">
+    <app-loading></app-loading>
+</div>
+
+<div *ngIf="context !== null && !context.showFeedbackLoading">
+
+    <div id="filter-pane-header">
+        <div id="filter-pane-header-inner">
+            <button *ngIf="context.reviewType === 'book'" class="btn btn-flat" (click)="backToBooks()"><i class="fa fa-chevron-circle-left"></i>Books</button>
+            <button *ngIf="context.reviewType === 'chapter'" class="btn btn-flat" (click)="backToChapters()"><i class="fa fa-chevron-circle-left"></i>Chapters</button>
+            <button *ngIf="context.reviewType === 'book' && context.book !== null" class="btn btn-flat" (click)="showAllBookFeedback()"><i class="fa fa-book"></i>All Feedback</button>
+            <button *ngIf="context.book !== null" class="btn btn-flat" (click)="hideFilterPane()"><i class="fa fa-book"></i>Content</button>
+        </div>
+    </div>
+
+    <div id="filter-pane">
+        <h1>Filter Feedback</h1>
+        <div id="filter-pane-content">
+
+            <h2><i class="fa fa-asterisk"></i>Reviewed</h2>
+
+            <button class="btn btn-flat" (click)="toggleShowReviewed()">
+                <i *ngIf="context.feedbackList.filter.showReviewed" class="fa fa-check-square-o"></i>
+                <i *ngIf="!context.feedbackList.filter.showReviewed" class="fa fa-square-o"></i>
+                Show Reviewed Entries
+            </button>
+
+            <h2><i class="fa fa-reply"></i>Replies</h2>
+
+            <button class="btn btn-flat" (click)="toggleShowResponses()">
+                <i *ngIf="context.feedbackList.filter.showResponses" class="fa fa-check-square-o"></i>
+                <i *ngIf="!context.feedbackList.filter.showResponses" class="fa fa-square-o"></i>
+                Show Feedback Replies
+            </button>
+
+            <div *ngIf="context.feedbackList.filter.users.length > 0">
+                <h2><i class="fa fa-user"></i>Readers</h2>
+
+                <div *ngFor="let user of context.feedbackList.filter.users">
+                    <button class="btn btn-flat" (click)="toggleShowUser(user.id)">
+                        <i *ngIf="user.show" class="fa fa-check-square-o"></i>
+                        <i *ngIf="!user.show" class="fa fa-square-o"></i>
+                        {{ user.name }}
+                    </button>
+                </div>
+            </div>
+
+            <div *ngIf="context.reviewType === 'book' && context.feedbackList.filter.books.length > 0">
+                <h2><i class="fa fa-book"></i>Chapters</h2>
+
+                <div *ngFor="let book of context.feedbackList.filter.books">
+                    <div class="book-filter-pane">
+                        <button class="btn btn-flat book-filter-pane-book" (click)="toggleShowBook(book.id)">
+                            <i *ngIf="book.show" class="fa fa-check-square-o"></i>
+                            <i *ngIf="!book.show" class="fa fa-square-o"></i>
+                            <i class="fa fa-book"></i>{{ book.title }}
+                        </button>
+
+                        <div *ngFor="let chapter of book.chapters">
+                            <button class="btn btn-flat book-filter-pane-chapter" (click)="toggleShowChapter(book.id, chapter.id)">
+                                <i *ngIf="chapter.show" class="fa fa-check-square-o"></i>
+                                <i *ngIf="!chapter.show" class="fa fa-square-o"></i>
+                                {{ chapter.title }}
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

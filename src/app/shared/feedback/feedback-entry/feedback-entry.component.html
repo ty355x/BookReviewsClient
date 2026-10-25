@@ -1,0 +1,107 @@
+<div *ngIf="context !== null" class="feedback-pane" [class.not-reviewed]="isFeedbackReviewed()">
+
+    <div class="feedback-pane-header-outer">
+
+        <div *ngIf="context.reviewType !== 'chapter'" class="book-details-pane">
+            <div class="feedback-book">
+                <i class="fa fa-book"></i>{{ feedback.book.title }}
+            </div>
+
+            <div class="feedback-chapter">
+                <i class="fa fa-file-text"></i>{{ feedback.chapter.title }}
+            </div>
+            <button *ngIf="context.chapterId !== feedback.chapter.id" class="btn btn-flat view-chapter-button" (click)="viewChapter(feedback.chapter)">
+                View Chapter
+            </button>
+        </div>
+
+        <div class="feedback-pane-header">
+
+            <div class="feedback-header-icon">
+                <i class="fa fa-user"></i>
+            </div>
+
+            <div class="feedback-header-author">
+                {{ feedback.user.name }}
+
+                <div class="feedback-header-date">
+                    {{ feedback.created_at | date: 'MMM d, y' }}
+                </div>
+
+            </div>
+
+            <div *ngIf="canMarkReviewed()" class="feedback-pane-header-actions">
+                <span *ngIf="context.user.role === 'author'" class="reviewed-pane">
+                    <button *ngIf="shouldShowResponseButton()" class="btn btn-flat" (click)="addResponseForEntry(feedback)">
+                        <i class="fa fa-plus-circle"></i>Add Reply
+                    </button>
+                    <button *ngIf="!feedback.reviewed" class="btn btn-flat flag" (click)="flagEntryReviewed(feedback)">
+                        <i class="fa fa-times-circle-o"></i>Not Reviewed
+                    </button>
+                    <button *ngIf="feedback.reviewed" class="btn btn-flat" (click)="flagEntryNotReviewed(feedback)">
+                        <i class="fa fa-check-circle-o"></i>Reviewed
+                    </button>
+                </span>
+                <button *ngIf="context.user.role === 'reader'" class="btn btn-flat" (click)="editReaderFeedback(feedback)">
+                    <i class="fa fa-edit"></i>Edit
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="feedback-pane-body" [class.has-responses]="feedback.responses.length > 0">
+        <app-rich-text [content]="feedback.feedback"></app-rich-text>
+    </div>
+
+    <div *ngIf="context.feedbackList.filter.showResponses">
+
+        <app-feedback-response-form *ngIf="context.responseForm.type === 'addResponse' && context.responseForm.feedbackId === feedback.id"
+            [context]="context">
+        </app-feedback-response-form>
+
+        <div *ngFor="let response of feedback.responses" class="response-pane" [class.current-user]="response.current_user"
+            [class.not-reviewed]="!isResponseReviewed(response)">
+
+            <div class="response-pane-header-outer">
+                <div class="response-pane-header">
+                    <div>
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="response-author" [class.highlight]="response.user.id === context.user.id">
+                        {{ response.user.name }}
+                    </div>
+
+                    <div class="response-date" [class.highlight]="response.user.id === context.user.id">
+                        {{ response.created_at | date: 'MMM d, y' }}
+                    </div>
+
+                    <div *ngIf="response.current_user" class="response-pane-header-actions">
+                        <button class="btn btn-flat" (click)="editReaderResponse(response)">
+                            <i class="fa fa-edit"></i>Edit
+                        </button>
+                    </div>
+
+                    <div *ngIf="!response.current_user && canMarkReviewed()" class="response-pane-header-actions">
+                        <button *ngIf="!response.reviewed" class="btn btn-flat flag" (click)="flagEntryReviewed(response)">
+                            <i class="fa fa-times-circle-o"></i>
+                            <span>Not Reviewed</span>
+                        </button>
+                        <button *ngIf="response.reviewed" class="btn btn-flat" (click)="flagEntryNotReviewed(response)">
+                            <i class="fa fa-check-circle-o"></i>
+                            <span>Reviewed</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="!(context.responseForm.type === 'editResponse' && context.responseForm.responseId === response.id)" class="response-pane-body">
+                <app-rich-text [content]="response.response"></app-rich-text>
+            </div>
+
+            <app-feedback-response-form *ngIf="context.responseForm.type === 'editResponse' && context.responseForm.responseId === response.id"
+                [context]="context">
+            </app-feedback-response-form>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+.book-cover-pane {
+    float: left;
+}
+
+.book-details-pane {
+    float: left; margin-left: 24px;
+}
+
+.book-cover {
+    height: 48px;
+}
+
+.book-title {
+    font-weight: bold; font-size: 18px; color: var(--header-color);
+}
+
+.book-authors {
+    font-size: 12px; color: var(--header-color-light);
+}
+
+.review-pane {
+    margin-top: 12px;
+}
+
+.hide-when-dragging {
+    visibility: hidden;
+}
+
+table .hide-when-dragging {
+    visibility: visible;
+}
+
+table .show-when-dragging {
+    background-color: white;
+}
+
+.drag-row {
+    border: solid 1px var(--border-color); border-radius: 6px; display: block; background-color: rgba(255, 255, 255, 0.65);
+    padding-top: 6px;
+}
+
+table .drag-row {
+    background-color: transparent; display: table-row; border: none;
+}
+
+.guidance {
+    max-height: 180px; overflow-y: auto;
+}
+
+.guidance h1 {
+    margin-top: 0;
+}
+
+.guidance div {
+    margin: 12px 0 0 0;
+}
+
+.signup-url .page-header {
+    margin: 0 0 12px 0;
+}
+
+.signup-url-link {
+    border: solid 2px var(--border-color); padding: 6px; border-radius: 6px; background-color: rgb(247, 247, 247);
+}
+
+.info {
+    background-color: rgb(232, 232, 232); color: var(--text-color) !important; padding: 6px 12px !important;
+    border-radius: 6px;
+}

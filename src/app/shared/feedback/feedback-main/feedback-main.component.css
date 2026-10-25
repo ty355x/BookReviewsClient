@@ -1,0 +1,28 @@
+#feedback-main-pane {
+    position: absolute; top: 52px; bottom: 4px; left: 4px; right: 4px; margin: 0 auto; width: calv(100vw - 8px); max-width: 1920px;
+    background-color: var(--pane-bg-color);
+}
+
+#left-pane {
+    position: absolute; top: 0; left: 0; width: 50%; bottom: 0;
+}
+
+#feedback-main-pane.user-reader #left-pane {
+    width: 45%;
+}
+
+#left-pane.filter-visible {
+    width: 20%;
+}
+
+#feedback-pane {
+    position: absolute; top: 0; left: 50%; width: 50%; bottom: 0;
+}
+
+#feedback-main-pane.user-reader #feedback-pane {
+    left: 55%; bottom: 0;
+}
+
+#feedback-pane.filter-visible {
+    left: 20%;
+}

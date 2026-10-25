@@ -1,0 +1,100 @@
+<div class="dialog" *ngIf="view === 'select'">
+
+    <div class="dialog-title">
+        <h1>Select KDPTrack Users to Import</h1>
+    </div>
+
+    <div class="dialog-body">
+
+        <div *ngIf="isLoading">
+            <app-loading></app-loading>
+        </div>
+
+        <div *ngIf="!isLoading">
+            <table class="table">
+                <tr>
+                    <th>User Name</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Disabled</th>
+                    <th class="center">Import</th>
+                </tr>
+                <tr *ngFor="let user of users" class="import-user-row" [class.highlight]="user.import" (click)="toggleImportUser(user)">
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        <span>
+                            <i class="fa fa-user" [class.author]="user.role === 'member'" [class.admin]="user.role === 'admin'"></i>
+                            {{ user.role }}
+                        </span>
+                    </td>
+                    <td>
+                        <span *ngIf="!user.is_disabled"><i class="fa fa-check-circle success"></i>Enabled</span>
+                        <span *ngIf="user.is_disabled"><i class="fa fa-times-circle fail"></i>Disabled</span>
+                    </td>
+                    <td class="center">
+                        <i *ngIf="user.import" class="fa fa-check-circle success"></i>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="dialog-footer">
+        <button class="btn" (click)="next()" [disabled]="isLoading || selectionCount === 0">Next</button>
+        <button class="btn" (click)="cancel()" [disabled]="isLoading">Cancel</button>
+    </div>
+
+</div>
+
+<div class="dialog" *ngIf="view === 'confirm'">
+
+    <div class="dialog-title">
+        <h1>Confirm Import Users</h1>
+    </div>
+
+    <div class="dialog-body">
+
+        <div>
+            <table class="table">
+                <tr>
+                    <th>UserName</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>KDPTrack Role</th>
+                    <th>BookReviews Role</th>
+                    <th>Disabled</th>
+                </tr>
+                <tr *ngFor="let user of selectedUsers">
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        <span>
+                            <i class="fa fa-user" [class.author]="user.role === 'member'" [class.admin]="user.role === 'admin'"></i>
+                            {{ user.role }}
+                        </span>
+                    </td>
+                    <td>
+                        <span><i class="fa fa-user author"></i>author</span>
+                    </td>
+                    <td>
+                        <span *ngIf="!user.is_disabled"><i class="fa fa-check-circle success"></i>Enabled</span>
+                        <span *ngIf="user.is_disabled"><i class="fa fa-times-circle fail"></i>Disabled</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="dialog-footer">
+        <button class="btn" (click)="import()" [disabled]="isLoading">Import Users</button>
+        <button class="btn" (click)="backToSelect()" [disabled]="isLoading">Back</button>
+        <button class="btn" (click)="cancel()" [disabled]="isLoading">Cancel</button>
+    </div>
+
+</div>

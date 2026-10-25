@@ -1,0 +1,56 @@
+<ul class="button-pane">
+    <li><div class="tab-item" [class.selected]="userFilter.role === 'all'" (click)="setUserRoleFilter('all')">All Users</div></li>
+    <li><div class="tab-item" [class.selected]="userFilter.role === 'author'" (click)="setUserRoleFilter('author')">Authors</div></li>
+    <li><div class="tab-item" [class.selected]="userFilter.role === 'reader'" (click)="setUserRoleFilter('reader')">Readers</div></li>
+    <li><div class="tab-item" [class.selected]="userFilter.role === 'admin'" (click)="setUserRoleFilter('admin')">Admins</div></li>
+    <li class="tab-item-sep"></li>
+    <li>
+        <input class="textbox" style="width: 16rem; padding: 6px;" placeholder="Name or email address..." [(ngModel)]="userFilter.searchText"
+            (ngModelChange)="onFilterSearchTextChange($event)">
+    </li>
+    <li class="tab-item-sep"></li>
+    <li><button *ngIf="!isLoading && !error" class="btn btn-toolbar" (click)="addUser()"><i class="fa fa-plus-square"></i>Add User</button></li>
+    <li><button *ngIf="!isLoading && !error" class="btn btn-toolbar" (click)="importUsers()"><i class="fa fa-download"></i>Import KDPTrack Users</button></li>
+</ul>
+
+<div *ngIf="isLoading">
+    <app-loading></app-loading>
+</div>
+
+<div *ngIf="!isLoading && error">
+    <app-page-error [error]="error"></app-page-error>
+</div>
+
+<div *ngIf="!isLoading && !error">
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th class="center">Assigned Books</th>
+            <th>KDPTrack User</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let user of filteredUsers">
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+                <i *ngIf="user.role === 'admin'" class="fa fa-user table-icon admin"></i>
+                <i *ngIf="user.role === 'author'" class="fa fa-user table-icon author"></i>
+                <i *ngIf="user.role === 'reader'" class="fa fa-user table-icon reader"></i>
+                {{ user.role }}
+            </td>
+            <td class="center">
+                <span *ngIf="user.role === 'author'">{{ user.author_books_count }}</span>
+                <span *ngIf="user.role === 'reader'" >{{ user.reader_books_count }}</span>
+            </td>
+            <td>
+                <span *ngIf="user.kdptrack_user"><i class="fa fa-check-circle table-icon success"></i>True</span>
+                <span *ngIf="!user.kdptrack_user"><i class="fa fa-times-circle table-icon fail"></i>False</span>
+            </td>
+            <td class="actions">
+                <button class="btn btn-table" (click)="viewUser(user.id)"><i class="fa fa-edit"></i>View/Edit</button>
+            </td>
+        </tr>
+    </table>
+</div>

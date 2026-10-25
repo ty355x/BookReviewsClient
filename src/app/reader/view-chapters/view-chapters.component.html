@@ -1,0 +1,81 @@
+<div class="chapter-list-container">
+    <ul class="toolbar">
+        <li><button class="btn btn-flat" (click)="backToBooks()"><i class="fa fa-chevron-circle-left"></i>Books</button></li>
+    </ul>
+
+    <div *ngIf="isLoading">
+        <h1>Chapters</h1>
+        <app-loading></app-loading>
+    </div>
+
+    <div *ngIf="!isLoading && error">
+        <app-page-error [error]="error"></app-page-error>
+    </div>
+
+    <div *ngIf="!isLoading && !error">
+        <div *ngIf="book">
+            <div class="chapter-list-header">
+                <div class="book-pane">
+                    <div class="book-pane-icon">
+                        <i class="fa fa-book"></i>
+                    </div>
+                    <div class="book-pane-details">
+                        <div class="book-title"><h1>{{ book.title }}</h1></div>
+                        <div class="book-pane-authors">{{ book.authors }}</div>
+                    </div>
+                </div>
+
+                <div class="guidance-pane">
+                    <h1>Book Guidance</h1>
+                    <div *ngIf="book.guidance" [innerHTML]="book.guidance | nl2br"></div>
+                    <div *ngIf="!book.guidance">No guidance submitted for the current book</div>
+                </div>
+            </div>
+
+            <table *ngIf="book.chapters !== null && book.chapters.length > 0" class="chapter-list table light">
+
+                <tr>
+                    <th colspan="2" style="text-align: left; padding-left: 0 !important;"><h1>Chapters</h1></th>
+                    <th class="center">Latest Version</th>
+                    <th class="center">Reviewed</th>
+                    <th class="center">Unread Replies</th>
+                </tr>
+
+                <tr *ngFor="let chapter of book.chapters" class="chapter clickable" (click)="reviewChapter(chapter.id)">
+                    <td class="chapter-index">
+                        {{ chapter.chapter_index }}
+                    </td>
+
+                    <td class="chapter-title">
+                        {{ chapter.title }}
+                    </td>
+
+                    <td class="center">
+                        1
+                    </td>
+
+                    <td class="center">
+                        <div *ngIf="chapter.feedback_submitted" class="feedback-status feedback-submitted">
+                            <i class="fa fa-check-circle success"></i>Reviewed
+                        </div>
+                        <div *ngIf="!chapter.feedback_submitted" class="feedback-status no-feedback">
+                            <i class="fa fa-times-circle fail"></i>Not&nbsp;Reviewed
+                        </div>
+                    </td>
+
+                    <td class="center">
+                        <span class="stat" [class.highlight]="chapter.unread_response_count > 0">
+                            {{ chapter.unread_response_count }}
+                        </span>
+                    </td>
+
+                </tr>
+            </table>
+
+            <div *ngIf="book.chapters === null || book.chapters.length === 0" class="notice">
+                No chapters found for the current book
+            </div>
+
+        </div>
+    </div>
+</div>

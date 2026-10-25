@@ -1,0 +1,77 @@
+.table {
+    border-collapse: collapse; width: 100%; border: solid 1px var(--border-color);
+}
+
+.table th, .table td {
+    padding: 8px 6px; border-bottom: solid 1px var(--border-color); text-align: left; vertical-align: middle;
+}
+
+.table th {
+    background-color: var(--table-header-bg-color); border-top: solid 1px var(--border-color); font-weight: 600;
+    color: rgb(78, 78, 78);
+}
+
+.table th:first-child {
+    border-left: none;
+}
+
+.table th:last-child {
+    border-right: none;
+}
+
+.table td {
+    background-color: var(--pane-bg-color);
+}
+
+.table td:first-child {
+    border-left: none;
+}
+
+.table td:last-child {
+    border-right: none;
+}
+
+.table td.actions {
+    text-align: center;
+}
+
+.table th.center, .table td.center {
+    text-align: center;
+}
+
+.table th.right, .table td.right {
+    text-align: right;
+}
+
+.table-icon {
+    color: var(--header-alt-color); margin-right: 12px;
+}
+
+.table td.stat {
+    text-align: center;
+}
+
+.table .stats-cell {
+    text-align: center !important; padding: 0 2px !important; color: rgb(90, 110, 134); font-weight: 600;
+}
+
+.table .stats-value {
+    padding: 4px 12px; border-radius: 4px; display: inline-block;
+}
+
+.table .stats-cell.highlight .stats-value {
+    color: var(--fail-color); font-weight: 600; background: rgb(224, 214, 214);
+}
+
+.table.light {
+    border: none;
+}
+
+.table.light th {
+    background-color: transparent; border-top: none; font-size: 0.95rem; color: rgb(104, 104, 104); font-weight: 600;
+    border-bottom: none;
+}
+
+.table.light tr:last-child td {
+    border-bottom: none;
+}

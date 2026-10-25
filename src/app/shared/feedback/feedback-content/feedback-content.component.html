@@ -1,0 +1,68 @@
+<div *ngIf="context !== null && context.showChapterLoading" style="margin: 64px 32px 32px 32px;">
+    <app-loading></app-loading>
+</div>
+
+<div *ngIf="context !== null && context.contentError">
+    <div style="padding: 32px 24px 24px 24px">
+        <app-page-error [error]="context.contentError"></app-page-error>
+    </div>
+</div>
+
+<div *ngIf="context !== null && !context.showChapterLoading && !context.contentError && context.book" id="content-pane-outer">
+
+    <div id="content-pane-header">
+        <div id="content-pane-header-inner">
+            <button *ngIf="context.reviewType === 'book'" class="btn btn-flat" (click)="backToBooks()"><i class="fa fa-chevron-circle-left"></i>Books</button>
+            <button *ngIf="context.reviewType === 'chapter'" class="btn btn-flat" (click)="backToChapters()"><i class="fa fa-chevron-circle-left"></i>Chapters</button>
+            <button *ngIf="context.reviewType === 'book'" class="btn btn-flat" (click)="showAllBookFeedback()"><i class="fa fa-book"></i>All Feedback</button>
+            <button *ngIf="allowFilter" class="btn btn-flat" (click)="showFilterPane()"><i class="fa fa-filter"></i>Filter</button>
+            <button class="btn btn-flat" (click)="readerMode = true"><i class="fa fa-eye"></i>Reader Mode</button>
+        </div>
+    </div>
+
+    <div id="content-pane-wrapper" [class.reader-mode]="readerMode">
+        <div id="content-pane">
+
+            <div id="reader-mode-header" *ngIf="readerMode">
+                <button class="btn btn-flat" (click)="readerMode = false">
+                    <i class="fa fa-times"></i>Close
+                </button>
+            </div>
+
+            <div id="reader-mode-content">
+
+                <div id="book-header">
+                    <div id="book-header-inner">
+                        <app-book-header [book]="context.book" [centered]="true" [plain]="true"></app-book-header>
+                    </div>
+
+                </div>
+
+                <div *ngIf="context.book.all_chapters && !readerMode" id="book-chapter-list-outer">
+                    <div id="book-chapter-list">
+                        <h1>Chapters</h1>
+                        <div id="book-chapter-list-inner">
+                            <button class="btn btn-flat" [disabled]="disablePrevChapterButton" (click)="prevChapter()"><i class="fa fa-chevron-circle-left"></i></button>
+                            <button *ngFor="let chapter of context.book.all_chapters" class="btn btn-flat" [class.highlight]="chapter.id == context.chapterId"
+                                (click)="changeChapter(chapter.id)">
+                                {{ chapter.index }}
+                            </button>
+                            <button class="btn btn-flat" [disabled]="disableNextChapterButton" (click)="nextChapter()"><i class="fa fa-chevron-circle-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="context.book.chapter.content.guidance" id="guidance-pane">
+                    <h1>Chapter Guidance</h1>
+                    <div [innerHTML]="context.book.chapter.content.guidance | nl2br"></div>
+                </div>
+
+                <div id="content-pane-content">
+                    <h1>{{ context.book.chapter.title }}</h1>
+                    <app-rich-text [content]="context.book.chapter.content.content" [isChapterContent]="true"></app-rich-text>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

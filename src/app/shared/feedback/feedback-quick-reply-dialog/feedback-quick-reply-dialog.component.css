@@ -1,0 +1,31 @@
+.dialog {
+    width: 400px; max-height: 600px;
+}
+
+.dialog-title {
+    display: flex; flex-direction: row; align-items: center;
+}
+
+.dialog-title h1 {
+    flex-grow: 1; margin: 8px 0;
+}
+
+.reply-pane {
+    border: solid 1px var(--border-color); background-color: var(--pane-bg-color); padding: 4px 8px 12px 8px; border-radius: 4px; margin-bottom: 4px;
+}
+
+.reply-actions {
+    margin-bottom: 12px; padding: 0 0 4px 0; display: flex; align-items: center; justify-content: flex-end; border-bottom: solid 1px var(--border-color);
+}
+
+.reply-actions .btn {
+    margin-right: 4px; padding: 4px; display: inline;
+}
+
+.reply-actions .btn .fa {
+    margin-right: 6px;
+}
+
+.reply-actions .fa-edit {
+    position: relative; top: 1px;
+}

@@ -1,0 +1,45 @@
+<div class="account-header-pane">
+    <ul *ngIf="!isLoading && !error" class="toolbar" style="border-bottom: none;">
+        <li><button class="btn btn-flat" (click)="editProfile()"><i class="fa fa-pencil-square-o"></i>Edit Profile</button></li>
+        <li><button class="btn btn-flat" (click)="changePassword()"><i class="fa fa-lock"></i>Change Password</button></li>
+    </ul>
+</div>
+
+<div *ngIf="!isLoading && !error">
+
+    <div class="account-pane-outer">
+        <div class="account-pane">
+
+            <h1>My Account</h1>
+
+            <div class="details">
+                <div class="details-field">
+                    <label>Name</label>
+                    <span>{{ user.name }}</span>
+                </div>
+                <div class="details-field">
+                    <label>Email</label>
+                    <span>{{ user.email }}</span>
+                </div>
+                <div class="details-field">
+                    <label>Account Type</label>
+                    <span>
+                        <i *ngIf="user.role === 'admin'" class="fa fa-user admin" style="margin-right: 12px;"></i>
+                        <i *ngIf="user.role === 'author'" class="fa fa-user author " style="margin-right: 12px;"></i>
+                        <i *ngIf="user.role === 'reader'" class="fa fa-user reader " style="margin-right: 12px;"></i>
+                        {{ user.role }}
+                    </span>
+                </div>
+                <div class="details-field">
+                    <label>Reply Notification Emails</label>
+                    <span *ngIf="user.setting_reply_notifications === 'disabled'">
+                        <i class="fa fa-times-circle fail" style="margin-right: 12px;"></i>Disabled
+                    </span>
+                    <span *ngIf="user.setting_reply_notifications === 'all'">
+                        <i class="fa fa-check-circle success" style="margin-right: 12px;"></i>Enabled
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

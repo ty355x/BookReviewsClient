@@ -1,0 +1,57 @@
+<div *ngIf="isLoading">
+    <app-loading></app-loading>
+</div>
+
+<div *ngIf="!isLoading && error">
+    <app-page-error [error]="error"></app-page-error>
+</div>
+
+<div *ngIf="!isLoading && !error" class="pane">
+
+    <div class="pane-section no-border">
+
+        <div *ngIf="book !== null">
+            <app-book-header [book]="book"></app-book-header>
+        </div>
+
+        <div *ngIf="chapter && contentMeta" class="pane-light" style="margin-top: 0; padding-top: 1px; padding-bottom: 12px;">
+            <h1>{{ chapter.title }}</h1>
+            <h2 style="margin-top: -24px; margin-bottom: 0;">
+                <span *ngIf="contentMeta.version" style="font-size: 12px;">Version: {{ contentMeta.version }}</span>
+                <span *ngIf="!contentMeta.version" style="font-size: 12px;">New Version</span>
+            </h2>
+        </div>
+
+    </div>
+
+    <div class="pane-section">
+        <button class="btn btn-xsm btn-flat" (click)="createNewVersion()">
+            <i class="fa fa-plus-square"></i>New Version
+        </button>
+        <button *ngFor="let version of versions" class="btn btn-xsm btn-flat" (click)="editVersion(version.id)">
+            <i class="fa fa-file-text-o"></i>Version {{ version.version }}
+        </button>
+    </div>
+
+    <div *ngIf="contentMeta" class="pane-section">
+
+        <div class="form-field">
+            <h2 style="margin: 10px 0;">Chapter Guidance</h2>
+            <textarea class="textarea" style="height: 8em; width: 100%" [(ngModel)]="contentMeta.guidance"></textarea>
+            <span *ngIf="formErrors.guidance" class="form-field-error">{{ formErrors.guidance }}</span>
+        </div>
+
+        <div class="form-field">
+            <h2 style="margin: 10px 0;">Content</h2>
+            <app-rich-text-editor #richTextEditor [isChapterContent]="true" [allowTab]="true"></app-rich-text-editor>
+            <span *ngIf="formErrors.content" class="form-field-error">{{ formErrors.content }}</span>
+        </div>
+
+    </div>
+
+    <div class="pane-section buttons-pane">
+        <button class="btn" (click)="save()">Save</button>
+        <button class="btn" (click)="cancel()">Cancel</button>
+    </div>
+
+</div>

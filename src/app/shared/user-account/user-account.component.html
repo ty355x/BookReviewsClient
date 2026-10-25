@@ -1,0 +1,20 @@
+<div *ngIf="isLoading">
+    <app-loading></app-loading>
+</div>
+
+<div *ngIf="!isLoading && error">
+    <app-page-error [error]="error"></app-page-error>
+</div>
+
+
+<div *ngIf="!isLoading && !error">
+
+    <app-view-account *ngIf="view === 'profile'" [user]="user" (showEditProfile)="showEditProfile()" (showChangePassword)="showChangePassword()">
+    </app-view-account>
+
+    <app-edit-account-profile *ngIf="view === 'edit-profile'" [user]="user" (close)="closeEditProfile($event)">
+    </app-edit-account-profile>
+
+    <app-change-password *ngIf="view === 'change-password'" (close)="closeChangePassword()" ></app-change-password>
+
+</div>

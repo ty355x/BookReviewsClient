@@ -1,0 +1,19 @@
+.book-page-header {
+    display: flex; align-items: center; justify-content: right;
+}
+
+.review-pane {
+    margin-top: 12px;
+}
+
+.chapter-table-title h1 {
+    margin: 0 0 12px 0;
+}
+
+td.stat {
+    color: var(--header-alt-color); text-align: center;
+}
+
+td span.highlight {
+    color: var(--fail-color); background-color: var(--warn-light-bg-color); padding: 2px 8px; border-radius: 6px;
+}

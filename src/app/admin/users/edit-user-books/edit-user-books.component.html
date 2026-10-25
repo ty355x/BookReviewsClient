@@ -1,0 +1,52 @@
+<div *ngIf="isLoading">
+    <h1>Edit Assigned Books</h1>
+    <app-loading></app-loading>
+</div>
+
+<div *ngIf="!isLoading && error">
+    <h1>Edit Assigned Books</h1>
+    <app-page-error [error]="error"></app-page-error>
+</div>
+
+<div *ngIf="!isLoading && !error">
+
+    <header class="page-header">
+        <h1>Edit Assigned Books - {{ user.name }} ({{ user.email }})</h1>
+        <button class="btn" (click)="save()"><i class="fa fa-floppy-o"></i>Save</button>
+        <button class="btn" (click)="cancel()"><i class="fa fa-ban"></i>Cancel</button>
+    </header>
+
+    <div class="assigned-books-pane">
+        <h2>Assigned Books</h2>
+        <table class="table">
+            <tr>
+                <th>Title</th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let book of assignedBooks">
+                <td>{{ book.title }}</td>
+                <td class="actions">
+                    <button class="btn btn-table" (click)="removeBook(book)"><i class="fa fa-minus-square"></i>Remove</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="available-books-pane">
+        <h2>Available Books</h2>
+        <table class="table">
+            <tr>
+                <th>Title</th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let book of availableBooks">
+                <td>{{ book.title }}</td>
+                <td class="actions">
+                    <button class="btn btn-table" (click)="assignBook(book)"><i class="fa fa-plus-square"></i>Assign</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+

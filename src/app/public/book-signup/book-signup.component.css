@@ -1,0 +1,115 @@
+.book-signup-wrapper {
+    width: 100vw; height: 100vh; background-color: rgb(18, 44, 90); margin-top: 0; position: fixed;
+}
+
+.title {
+    position: absolute; top: -12px; left: 32px; font-size: 18px; color: rgba(255, 255, 255, 0.25);
+    text-transform: uppercase;
+}
+
+.title a:link, .title a:visited {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.title a:hover, .title a:active {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* Error */
+
+.error-pane {
+    background-color: white; width: 500px; margin: 10% auto 0 auto; padding: 12px 24px 32px 24px; border-radius: 6px;
+}
+
+.error-pane h1 {
+    margin-top: 12px;
+}
+
+/* Loading */
+
+.loading-pane {
+    background-color: white; width: 500px; height: 200px; margin: 10% auto 0 auto; padding: 32px; border-radius: 6px;
+}
+
+/* Login */
+
+.login-form {
+    background-color: white; width: 300px; margin: 5% auto 0 auto; padding: 32px; border-radius: 6px;
+}
+
+.login-form h1 {
+    margin-top: 0; text-align: center;
+}
+
+.login-form-field label {
+    display: block; font-weight: bold; margin-bottom: 10px;
+}
+
+.login-form-field .textbox {
+    display: block; margin-bottom: 24px; width: 240px; border: none; background-color: rgb(243, 243, 243);
+    padding: 8px; border: solid 2px rgb(232, 232, 232); outline: none;
+}
+
+.login-form-field .textbox:disabled {
+    background-color: rgb(247, 247, 247); border: solid 2px rgb(246, 246, 246); color: rgb(193, 193, 193);
+}
+
+.login-form-footer {
+    text-align: center; margin-top: 48px;
+}
+
+.login-btn {
+    padding: 10px 32px; background-color: rgb(21, 129, 165); border-radius: 5px; border: none;
+    width: 240px; cursor: pointer; font-weight: bold; color: white;
+}
+
+.login-btn:hover:enabled {
+    background-color: rgb(37, 149, 186);
+}
+
+.login-btn:active:enabled {
+    background-color: rgb(16, 104, 151)
+}
+
+.login-btn:disabled, .login-btn[disabled]:hover {
+    cursor: default; background-color: rgb(212, 212, 212);
+}
+
+.login-form-error {
+    color: rgb(255, 3, 3); background-color: rgb(255, 231, 231); padding: 12px; border-radius: 6px; margin: -12px 0 -34px 0;
+}
+
+/* success */
+
+.success-pane {
+    background-color: white; width: 500px; margin: 10% auto 0 auto; padding: 12px 24px 12px 24px; border-radius: 6px;
+    font-size: 16px;
+}
+
+.success-pane h1 {
+    margin: 12px 0 24px 0;
+}
+
+.success-pane .book-title {
+    margin: 16px 0 12px 0; font-weight: bold; color: var(--header-color);
+}
+
+.success-pane .fa {
+    color: var(--header-color); margin-right: 12px;
+}
+
+.options {
+    margin-top: 38px; text-align: center;
+}
+
+.options .btn:first-child {
+    margin-bottom: 6px; font-size: 15px;
+}
+
+.options .btn .fa {
+    color: var(--button-table-text-color);
+}
+
+.btn-option {
+    margin-top: 12px;
+}

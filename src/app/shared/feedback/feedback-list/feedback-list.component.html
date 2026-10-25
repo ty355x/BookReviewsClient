@@ -1,0 +1,72 @@
+<div *ngIf="context !== null && context.showFeedbackLoading" style="margin: 64px 32px 32px 32px">
+    <app-loading></app-loading>
+</div>
+
+<div *ngIf="context !== null && context.feedbackError">
+    <div style="padding: 32px 24px 24px 24px">
+        <app-page-error [error]="context.feedbackError"></app-page-error>
+    </div>
+</div>
+
+<div *ngIf="context !== null && !context.showFeedbackLoading && !context.feedbackError && context?.feedbackForm?.type !== null"
+    id="feedback-form-container">
+    <app-feedback-form [context]="context"></app-feedback-form>
+</div>
+
+<div *ngIf="context !== null && !context.showFeedbackLoading && !context.feedbackError" id="feedback-list">
+    <div id="feedback-list-header">
+        <div id="feedback-list-header-inner">
+            <h1 *ngIf="context.user.role !== 'reader'">Feedback</h1>
+            <h1 *ngIf="context.user.role === 'reader'">Your Feedback</h1>
+
+            <div id="feedback-list-header-actions">
+                <div class="unreviewed" [class.highlight]="context.feedbackList.nonReviewedItemCount > 0">
+                    <span class="unreviewed-label" *ngIf="context.user.role !== 'reader'">Not&nbsp;Reviewed&nbsp;</span>
+                    <span class="unreviewed-label" *ngIf="context.user.role === 'reader'">Unread&nbsp;Replies&nbsp;</span>
+                    <span class="unreviewed-count">
+                        {{ context.feedbackList.nonReviewedItemCount }}
+                    </span>
+                </div>
+                <button *ngIf="context.user.role === 'reader'" class="btn btn-outline light" (click)="showFeedbackForm()">
+                    <i class="fa fa-edit" style="position: relative; top: 1px"></i>Leave feedback
+                </button>
+                <button *ngIf="context.user.role === 'reader' || context.user.role === 'author'" class="btn btn-outline light" (click)="markAllItemsAsReviewed()"
+                    [disabled]="context.feedbackList.nonReviewedItemCount === 0">
+                    <i class="fa fa-check-square"></i>
+                    <span>Mark All Reviewed</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="context.feedbackList.filter.items.length > 0 && !context.feedbackList.filter.allItemsHidden" id="feedback-list-items">
+        <div *ngFor="let feedbackEntry of context.feedbackList.filter.items">
+            <div *ngIf="feedbackEntry.show">
+                <app-feedback-entry [context]="context" [feedback]="feedbackEntry"
+                    (editFeedback)="showEditFeedbackForm($event)" (addResponse)="showResponseForm($event)" (editResponse)="showEditResponseForm($event)"
+                    (flagReviewed)="flagReviewed($event)" (flagNotReviewed)="flagNotReviewed($event)">
+                </app-feedback-entry>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="context.feedbackList.filter.items.length > 0 && context.feedbackList.filter.allItemsHidden" style="margin: 20px 7px; font-weight: 500;
+        font-size: 1.05rem;">
+        No items to show
+    </div>
+
+    <div *ngIf="context.feedbackList.filter.items.length === 0" style="margin: 12px 4px">
+        <div *ngIf="context.user.role === 'reader'">
+            You have not left any feedback for this chapter
+            <div>
+                <button class="btn btn-outline light" style="margin-top: 24px;" (click)="showFeedbackForm()">
+                    <i class="fa fa-edit"></i>Leave Feedback
+                </button>
+            </div>
+        </div>
+        <div *ngIf="context.user.role !== 'reader'">
+            No feedback found
+        </div>
+    </div>
+
+</div>

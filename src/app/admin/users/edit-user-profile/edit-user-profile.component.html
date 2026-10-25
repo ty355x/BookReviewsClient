@@ -1,0 +1,46 @@
+<div *ngIf="isLoading">
+    <h1>Edit User Profile</h1>
+    <app-loading></app-loading>
+</div>
+
+<div *ngIf="!isLoading && error">
+    <h1>Edit User Profile</h1>
+    <app-page-error [error]="error"></app-page-error>
+</div>
+
+
+<div *ngIf="!isLoading && !error && user" class="pane">
+
+    <h1>Edit User Profile</h1>
+
+    <div class="pane-section">
+        <div class="form-field">
+            <label>Name</label>
+            <input class="textbox" [disabled]="isBusy" [(ngModel)]="user.name">
+            <span *ngIf="formErrors.name" class="form-field-error">{{ formErrors.name }}</span>
+        </div>
+        <div class="form-field">
+            <label>Email</label>
+            <input class="textbox" [disabled]="isBusy" [(ngModel)]="user.email">
+            <span *ngIf="formErrors.email" class="form-field-error">{{ formErrors.email }}</span>
+        </div>
+        <div class="form-field">
+            <label>Change Password</label>
+            <input class="textbox" [disabled]="isBusy" [(ngModel)]="user.password">
+            <span *ngIf="formErrors.password" class="form-field-error">{{ formErrors.password }}</span>
+        </div>
+        <div class="form-field">
+            <label>Role</label>
+            <select class="select" [disabled]="isBusy" [(ngModel)]="user.role">
+                <option *ngFor="let role of userRoles" [ngValue]="role">{{ role }}</option>
+            </select>
+            <span *ngIf="formErrors.role" class="form-field-error">{{ formErrors.role }}</span>
+        </div>
+    </div>
+
+    <div class="pane-section buttons-pane">
+        <button class="btn" [disabled]="isBusy" (click)="save()">Save</button>
+        <button class="btn" [disabled]="isBusy" (click)="cancel()">Cancel</button>
+    </div>
+
+</div>

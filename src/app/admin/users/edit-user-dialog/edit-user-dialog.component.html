@@ -1,0 +1,37 @@
+<div class="dialog">
+    <div class="dialog-title">
+        <h1 *ngIf="isCreating">Add User</h1>
+        <h1 *ngIf="!isCreating">Edit User</h1>
+    </div>
+
+    <div class="dialog-body">
+        <div class="form-field">
+            <label>Name</label>
+            <input type="text" class="textbox" [(ngModel)]="user.name" [disabled]="isLoading">
+            <span *ngIf="errors.name" class="form-field-error">{{ errors.name }}</span>
+        </div>
+        <div class="form-field">
+            <label>Email</label>
+            <input type="text" class="textbox" [(ngModel)]="user.email" [disabled]="isLoading">
+            <span *ngIf="errors.email" class="form-field-error">{{ errors.email }}</span>
+        </div>
+        <div class="form-field">
+            <label *ngIf="isCreating">Password</label>
+            <label *ngIf="!isCreating">Change Password</label>
+            <input type="text" class="textbox" [(ngModel)]="user.password" [disabled]="isLoading">
+            <span *ngIf="errors.password" class="form-field-error">{{ errors.password }}</span>
+        </div>
+        <div class="form-field">
+            <label>Role</label>
+            <select class="select" [(ngModel)]="user.role">
+                <option *ngFor="let role of userRoles" [ngValue]="role">{{ role }}</option>
+            </select>
+            <span *ngIf="errors.role" class="form-field-error">{{ errors.role }}</span>
+        </div>
+    </div>
+
+    <div class="dialog-footer">
+        <button class="btn" (click)="save()" [disabled]="isLoading">Save</button>
+        <button class="btn" (click)="cancel()" [disabled]="isLoading">Cancel</button>
+    </div>
+</div>

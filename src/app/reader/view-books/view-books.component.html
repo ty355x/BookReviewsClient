@@ -1,0 +1,59 @@
+<div id="book-list-container">
+
+    <div *ngIf="isLoading">
+        <h1>My Books</h1>
+        <app-loading></app-loading>
+    </div>
+
+    <div *ngIf="!isLoading && error">
+        <h1>My Books</h1>
+        <app-page-error [error]="error"></app-page-error>
+    </div>
+
+    <div *ngIf="!isLoading && !error">
+
+        <div *ngIf="lastChapter !== null" class="last-chapter-pane" (click)="resumeLastChapter(lastChapter.chapter_id)">
+
+            <div class="last-chapter-header">
+                <h1>Continue Reading</h1>
+            </div>
+
+            <div class="last-chapter-details">
+                <div class="last-chapter-icon-container">
+                    <div class="last-chapter-icon"><i class="fa fa-book"></i></div>
+                </div>
+                <div class="last-chapter-book-details">
+                    <div class="last-chapter-book-title">
+                        {{ lastChapter.book_title }}
+                    </div>
+                    <div class="last-chapter-chapter-title">
+                        {{ lastChapter.chapter_title }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <header class="book-page-header">
+            <div class="book-page-header-stats">
+                <div class="stats-pane" [class.highlight]="totalUnreviewedChapters > 0">
+                    <div class="stats-name">Unreviewed Chapters</div>
+                    <div class="stats-value">{{ totalUnreviewedChapters }}</div>
+                </div>
+                <div class="stats-pane" [class.highlight]="totalUnreviewedResponses > 0">
+                    <div class="stats-name">Unread Replies</div>
+                    <div class="stats-value">{{ totalUnreviewedResponses }}</div>
+                </div>
+            </div>
+        </header>
+
+        <ul class="tabs">
+            <li [class.selected]="view === null" (click)="setView(null)">My Books</li>
+            <li [class.selected]="view === 'unreviewed-chapters'" (click)="setView('unreviewed-chapters')">Unreviewed Chapters</li>
+        </ul>
+
+        <app-reader-book-list *ngIf="view === null" [books]="books"></app-reader-book-list>
+        <app-reader-unreviewed-chapters *ngIf="view === 'unreviewed-chapters'" [books]="unreviewedChapters"></app-reader-unreviewed-chapters>
+
+    </div>
+
+</div>

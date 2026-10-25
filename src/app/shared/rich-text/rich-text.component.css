@@ -1,0 +1,11 @@
+.rich-text-display.chapter-content {
+    line-height: 1.65rem; font-family: 'Lora', 'Times New Roman', Times, serif; font-size: 1.05rem;
+}
+
+.rich-text-display p {
+    margin: 2px 0;
+}
+
+.rich-text-display.chapter-content p {
+    margin: 0.65rem 0;
+}

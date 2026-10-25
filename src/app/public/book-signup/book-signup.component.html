@@ -1,0 +1,66 @@
+<div class="book-signup-wrapper">
+
+    <h1 class="title">
+        <a href="/">BookReviews</a>
+    </h1>
+
+    <div *ngIf="view === 'error'">
+        <div class="error-pane">
+            <h1>Unable to sign up for book</h1>
+            <app-page-error [error]="error"></app-page-error>
+            <div class="options">
+                <div><button class="btn btn-flat" (click)="goHome()"><i class="fa fa-book"></i>BookReviews Home</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="view === 'loading'">
+        <div class="loading-pane">
+            <h1 style="margin-top: 0; margin-bottom: 48px; margin-left: -3px;">Book Signup</h1>
+            <app-loading></app-loading>
+        </div>
+    </div>
+
+    <div *ngIf="view === 'login'">
+
+        <div class="login-form">
+
+            <h1>Login to Signup for Book</h1>
+
+            <div class="login-form-field">
+                <label>Email</label>
+                <input id="email" name="email" type="text" class="textbox" [(ngModel)]="loginCredentials.email" [disabled]="disableLoginForm">
+            </div>
+
+            <div class="login-form-field">
+                <label>Password</label>
+                <input id="password" name="password" type="password" class="textbox" [(ngModel)]="loginCredentials.password" [disabled]="disableLoginForm">
+            </div>
+
+            <div *ngIf="loginError" class="login-form-error">
+                {{ loginError }}
+            </div>
+
+            <div class="login-form-footer">
+                <button type="submit" class="login-btn" (click)="login()" [disabled]="disableLoginForm">LOG IN</button>
+                <button class="btn btn-flat btn-option" (click)="createAccount()">
+                    <i class="fa fa-user-plus"></i>Create an Account
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="view === 'success'">
+        <div class="success-pane">
+            <h1>Book Signup Success</h1>
+            <div>The following book has been added to your book list:</div>
+            <div class="book-title"><i class="fa fa-book"></i>{{ book.title }}</div>
+
+            <div class="options">
+                <div><button class="btn btn-flat" (click)="viewBook()"><i class="fa fa-book"></i>View Book</button></div>
+                <div><button class="btn btn-flat" (click)="viewBookList()"><i class="fa fa-list"></i>Go to Book List</button></div>
+            </div>
+
+        </div>
+    </div>
+</div>

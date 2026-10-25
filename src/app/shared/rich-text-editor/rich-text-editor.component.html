@@ -1,0 +1,10 @@
+<div [class.is-chapter-content]="isChapterContent">
+    <div [id]="richTextEditorToolbarId">
+        <button class="ql-bold"></button>
+        <button class="ql-italic"></button>
+        <button class="ql-underline"></button>
+    </div>
+    <div [id]="richTextEditorId" [class.rich-text-editor-large]="size === 'large'" [class.rich-text-editor-medium]="size === 'medium'"
+        [class.rich-text-editor-small]="size === 'small'">
+    </div>
+</div>

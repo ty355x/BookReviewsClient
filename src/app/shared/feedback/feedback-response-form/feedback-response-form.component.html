@@ -1,0 +1,33 @@
+<div class="feedback-response-form" [class.edit-response]="context.responseForm.type === 'editResponse'">
+    <div class="form-field">
+
+        <h1 *ngIf="context.responseForm.type === 'addResponse'">Add Reply</h1>
+        <h1 *ngIf="context.responseForm.type === 'editResponse'">Edit Reply</h1>
+
+        <app-rich-text-editor #richTextEditor [disabled]="context.responseForm.loading" [size]="'medium'"
+            (tabPressed)="onEditorTabPressed()">
+        </app-rich-text-editor>
+
+        <span *ngIf="context.responseForm.errors.response" class="form-field-error">{{ context.responseForm.errors.response }}</span>
+    </div>
+
+    <div *ngIf="appContext.user.role === 'author' && context.responseForm.type === 'addResponse'" class="quick-reply-pane">
+
+        <div class="quick-reply-pane-header">
+            <h1>Quick Replies</h1>
+            <button class="btn btn-flat btn-xsm" (click)="editQuickReplies()"><i class="fa fa-edit"></i>Edit Quick Replies</button>
+        </div>
+
+        <div class="quick-reply-content">
+            <div *ngFor="let reply of appContext.user.quickReplies" class="quick-reply" (click)="sendQuickReply(reply)">
+                <app-rich-text [content]="reply.reply"></app-rich-text>
+            </div>
+        </div>
+
+    </div>
+
+    <div>
+        <button #saveButton class="btn" (click)="save()" [disabled]="context.responseForm.loading">Save</button>
+        <button class="btn" (click)="close()" [disabled]="context.responseForm.loading">Cancel</button>
+    </div>
+</div>

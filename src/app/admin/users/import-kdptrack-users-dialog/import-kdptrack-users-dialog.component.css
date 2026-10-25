@@ -1,0 +1,19 @@
+.dialog {
+    width: 1200px; max-width: 75vw;
+}
+
+.dialog-body {
+    height: 900px; max-height: 75vh;
+}
+
+tr.import-user-row:hover td {
+    background-color: var(--button-table-hover-bg-color); cursor: pointer;
+}
+
+tr.highlight td {
+    background-color: rgb(217, 228, 208) !important;
+}
+
+.table span i.fa {
+    margin-right: 8px;
+}

@@ -1,0 +1,143 @@
+/** Book List Container **/
+
+#book-list-container {
+    margin: 32px auto 0 auto; max-width: 1200px;
+}
+
+#book-list-container .tabs {
+    margin-top: -12px;
+}
+
+/** Book Page Header **/
+
+.book-page-header {
+    display: flex; margin: 24px 0 12px 0; align-items: center;
+}
+
+.book-page-header h1 {
+    margin-left: 14px;
+}
+
+.book-page-header-stats {
+    flex-grow: 1; display: flex; justify-content: right;
+}
+
+/** Book List **/
+
+.book-list {
+    width: 100%; border-collapse: collapse;
+}
+
+.book-list td {
+    vertical-align: middle; padding: 12px 12px;
+}
+
+/** Book **/
+
+.book-row {
+    padding: 6px; margin: 0 0 12px 0; border-radius: 6px;
+}
+
+.book-icon {
+    background-color: rgb(214, 220, 222); border-radius: 6px; padding: 2px 8px 2px 7px; font-size: 1.25rem; color: rgb(83, 110, 159);
+    margin-right: 6px;
+}
+
+.book-title-cell {
+    width: 100%
+}
+
+.book-title {
+    font-weight: 600; font-size: 1.15rem; color: var(--header-alt-color); max-height: 60px; text-overflow: ellipsis; margin-bottom: 2px;
+    text-align: left; color: var(--header-alt-color);
+}
+
+.book-authors {
+    font-size: 0.9rem; color: rgb(80, 80, 80); max-height: 20px; text-overflow: ellipsis; margin-bottom: 0;
+    font-weight: 600; text-align: left;
+}
+
+/** Book Stats **/
+
+td.stats-cell {
+    padding-left: 2px !important; padding-right: 2px !important; font-weight: 500;
+}
+
+td.stats-cell .stats-pane {
+    font-size: 0.85rem;
+}
+
+.actions-cell {
+    text-align: center;
+}
+
+.actions-pane {
+    width: 16.25rem;
+}
+
+/** Last Chapter Pane **/
+
+.last-chapter-pane {
+    padding: 6px 0; border-radius: 4px; margin-bottom: 16px; display: flex; align-items: center; border: solid 1px var(--border-color);
+    margin-top: -12px; font-size: 0.95rem; background-color: rgb(239, 239, 239); border: none;
+}
+
+.last-chapter-header {
+    flex-grow: 1; display: flex; justify-content: center;
+}
+
+.last-chapter-header h1 {
+    margin: 6px 12px; font-size: 0.95rem;
+}
+
+.last-chapter-details {
+    flex-grow: 1; justify-self: center; display: flex; align-items: center;
+}
+
+.last-chapter-icon {
+    background-color: rgb(214, 220, 222); padding: 3px 6px; margin-right: 16px; border-radius: 6px;
+}
+
+.last-chapter-icon .fa {
+    margin: 0 0 0 0; color: rgb(83, 110, 159); font-size: 1.05rem;
+}
+
+.last-chapter-book-title {
+    font-weight: 600; color: rgb(88, 88, 88);
+}
+
+.last-chapter-pane:hover {
+    cursor: pointer; background-color: var(--item-hover-bg-color);
+}
+
+/** Unreviewed Chapters **/
+
+.unreviewed-chapters-book {
+    padding: 4px; margin: 12px 0 8px 0; display: flex; align-items: center; background-color: rgb(229, 229, 229);
+    font-size: 1.05rem; border-radius: 4px;
+}
+
+.unreviewed-chapters-book .book-icon {
+    margin-right: 8px; font-size: 1.25rem; background-color: transparent;
+}
+
+.unreviewed-chapters-book-title {
+    font-weight: 600; color: var(--header-alt-color);
+}
+
+.unreviewed-chapters-chapter {
+    margin: 4px 0 4px 32px; padding: 6px 12px; display: flex; align-items: center; border-radius: 4px;
+}
+
+.unreviewed-chapters-chapter:hover {
+    cursor: pointer; background-color: var(--item-hover-bg-color);
+}
+
+.unreviewed-chapters-chapter-icon {
+    color: rgb(96, 114, 146); margin-right: 24px;
+}
+
+.no-books-pane {
+    margin: 12px 12px;
+}
+

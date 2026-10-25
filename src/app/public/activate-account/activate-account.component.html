@@ -1,0 +1,26 @@
+<div class="pane-container">
+
+    <div *ngIf="view === 'loading'" class="pane">
+        <h1>Activating Account</h1>
+
+        <div *ngIf="isLoading">
+            <app-loading></app-loading>
+        </div>
+
+        <div *ngIf="!isLoading && error">
+            <div class="fail">{{ error }}</div>
+        </div>
+    </div>
+
+    <div *ngIf="view === 'success'" class="pane">
+        <h1>Account Activated</h1>
+
+        <p>Your account has been activated</p>
+
+        <div style="margin-top: 24px">
+            <button class="btn btn-flat" (click)="login()"><i class="fa fa-sign-in"></i>Log In</button>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,25 @@
+<div class="dialog">
+    <h1 class="dialog-title">
+        Edit Chapter Title
+    </h1>
+
+    <div class="dialog-body">
+        <div class="form-field">
+            <label>Title</label>
+            <input class="textbox" [(ngModel)]="chapter.title" [disabled]="isLoading || chapter.auto_title">
+            <div>
+                <button class="btn btn-flat" style="margin-left: -4px; margin-top: 4px;" (click)="toggleAutoTitle()">
+                    <span *ngIf="chapter.auto_title" class="fa fa-check-square-o" style="margin-right: 6px;"></span>
+                    <span *ngIf="!chapter.auto_title" class="fa fa-square-o" style="margin-right: 6px;"></span>
+                    Automatically generate title
+                </button>
+            </div>
+            <span *ngIf="errors.title" class="form-field-error">{{ errors.title }}</span>
+        </div>
+    </div>
+
+    <div class="dialog-footer">
+        <button class="btn" (click)="save()" [disabled]="isLoading">Save</button>
+        <button class="btn" (click)="cancel()" [disabled]="isLoading">Cancel</button>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div *ngFor="let book of books">
+
+    <div class="unreviewed-chapters-book">
+
+        <div class="book-icon">
+            <i class="fa fa-book"></i>
+        </div>
+
+        <div class="unreviewed-chapters-book-title">
+            {{ book.title }}
+        </div>
+    </div>
+
+    <div *ngFor="let chapter of book.chapters" class="unreviewed-chapters-chapter" (click)="reviewChapter(chapter)">
+        <div class="unreviewed-chapters-chapter-icon"><i class="fa fa-file-text"></i></div>
+        <div class="unreviewed-chapters-chapter-title">{{ chapter.title }}</div>
+    </div>
+
+</div>

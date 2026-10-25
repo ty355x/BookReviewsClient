@@ -1,0 +1,150 @@
+/** Feedback Pane **/
+
+.feedback-pane {
+    --not-reviewed-color: rgb(184, 31, 31);
+    --not-reviewed-icon-color: rgb(147, 65, 65);
+    --not-reviewed-bg-color: rgb(195, 134, 134);
+
+    --user-icon-color: rgb(21, 103, 151);
+    --user-icon-bg-color: rgb(199, 215, 225);
+
+    width: 100%; margin-bottom: 10px; padding: 6px 6px 12px 6px; border-radius: var(--pane-border-radius); margin-top: 0; background-color: var(--pane-bg-color);
+    border: solid 1px var(--border-color);
+}
+
+/** Feedback Pane Header **/
+
+.feedback-pane-header {
+    display: flex; align-items: center; padding: 4px 8px 4px 12px; border-radius: var(--pane-border-radius); background-color: rgb(231, 238, 242);
+}
+
+.feedback-pane-header .fa-user {
+    padding: 4px 6px; border-radius: 6px; margin-right: 8px; border-radius: 50%; font-size: 1.05rem;
+    color: var(--user-icon-color); background-color: var(--user-icon-bg-color);
+}
+
+.feedback-header-icon {
+    font-size: 1.25rem;
+}
+
+.feedback-header-author {
+    flex: 1; font-size: 1rem; font-weight: 600; padding: 4px 0 6px 6px; color: rgb(79, 97, 112);
+}
+
+.feedback-header-date {
+    display: block; font-size: 0.85rem; margin-top: 0px; color: rgb(104, 104, 104); font-weight: 600;
+}
+
+.feedback-header .btn {
+    font-size: 0.9rem;
+}
+
+/** Book Details Pane **/
+
+.book-details-pane {
+    padding: 6px 12px 6px 12px; margin: 4px 12px 0 12px; color: rgb(90, 113, 122); background: rgb(231, 231, 231); border-radius: 6px;
+}
+
+.feedback-pane.not-reviewed .book-details-pane {
+    margin-left: 8px;
+}
+
+.book-details-pane .fa {
+    margin-right: 12px; font-size: 0.95rem;
+}
+
+.feedback-book {
+    font-size: 0.95rem; font-weight: 500; display: inline-block; padding-right: 12px; margin-right: 12px; border-right: solid 1px rgb(209, 209, 209);
+}
+
+.feedback-book .fa {
+    position: relative; top: 1px;
+}
+
+.feedback-chapter {
+    font-size: 0.95rem; font-weight: 500; display: inline-block; padding-right: 12px; margin-right: 2px; border-right: solid 1px rgb(209, 209, 209);
+}
+
+.feedback-chapter .fa {
+    font-size: 0.85rem;
+}
+
+.view-chapter-button {
+    display: inline-block; margin-left: 4px !important; font-size: 0.85rem; padding: 6px 8px; margin: 0; margin-top: -4px; margin-bottom: -4px;
+    border-radius: 6px;
+}
+
+/** Feedback Pane Body **/
+
+.feedback-pane-body {
+    margin: 24px 8px 24px 8px; padding: 0 8px;
+}
+
+.feedback-pane-body.has-responses {
+    border-bottom: solid 1px var(--border-color); padding-bottom: 16px; margin-bottom: 16px;
+}
+
+/** Response Pane **/
+
+.response-pane {
+    border-radius: 6px; margin: 4px 6px 0 6px; padding: 0 0 0 0; background-color: rgb(245, 245, 245);
+}
+
+.response-pane-header {
+    padding: 8px 0 10px 2px; display: flex; align-items: center; margin: 0 12px;
+}
+
+.response-pane-header-details {
+    padding: 5px 0; flex-grow: 1;
+}
+
+.response-pane-header-actions {
+    text-align: right;
+}
+
+.response-pane-body {
+    padding: 0 16px 16px 16px;
+}
+
+.response-pane .fa-user {
+    margin-right: 12px; padding: 2px 4px; font-size: 0.85rem; border-radius: 50%;
+    color: var(--user-icon-color); background-color: var(--user-icon-bg-color);
+}
+
+.response-author {
+    font-weight: 600; margin-right: 6px; color: var(--header-alt-color); font-size: 1rem; margin-right: 24px;
+}
+
+.response-date {
+    font-weight: 600; color: var(--header-alt-color); font-size: 0.85rem !important; flex: 1;
+}
+
+.response-date .fa {
+    margin-right: 16px;
+}
+
+.response-pane-body {
+    margin: 0 0 0 0;
+}
+
+/** Buttons **/
+
+.feedback-pane-header .btn {
+    font-size: 0.9rem; margin-right: 2px;
+}
+
+.response-pane-header .btn {
+    font-size: 0.9rem;
+}
+
+.btn.flag {
+    color: rgb(180, 17, 17); border-color: rgb(225, 210, 210); background-color: rgb(225, 210, 210);
+}
+
+.btn.flag:hover {
+    background-color: rgb(227, 195, 195);
+}
+
+.btn.flag:active {
+    background-color: rgb(216, 176, 176);
+}

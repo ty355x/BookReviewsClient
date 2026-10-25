@@ -1,0 +1,15 @@
+<div id="feedback-form" [class.response-feedback-form]="context.feedbackForm.type === 'response' || context.feedbackForm.type === 'editResponse'">
+    <div class="form-field">
+        <h2 *ngIf="context.feedbackForm.type === 'addFeedback'">Leave Feedback</h2>
+        <h2 *ngIf="context.feedbackForm.type === 'editFeedback'">Edit Feedback</h2>
+
+        <app-rich-text-editor #richTextEditor [disabled]="context.feedbackForm.loading" (tabPressed)="onEditorTabPressed()"></app-rich-text-editor>
+
+        <span *ngIf="context.feedbackForm.errors.feedback" class="form-field-error">{{ context.feedbackForm.errors.feedback }}</span>
+    </div>
+
+    <div id="feedback-form-button-pane">
+        <button #saveButton class="btn" (click)="save()" [disabled]="context.feedbackForm.loading">Save</button>
+        <button class="btn" (click)="close()" [disabled]="context.feedbackForm.loading">Cancel</button>
+    </div>
+</div>

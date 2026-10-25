@@ -1,0 +1,32 @@
+<h1>Error Log</h1>
+
+<div *ngIf="isLoading">
+    <app-loading></app-loading>
+</div>
+
+<table *ngIf="!isLoading && errors !== null && errors.length > 0" class="table">
+    <tr>
+        <th style="width: 15%">Error Type</th>
+        <th style="width: 20%">Error Message</th>
+        <th style="width: 10%">User</th>
+        <th style="width: 20%">Line</th>
+        <th style="width: 20%">URL</th>
+        <th style="width: 15%">Date</th>
+    </tr>
+    <tr *ngFor="let error of errors">
+        <td>{{ error.error_type }}</td>
+        <td>{{ error.error_message }}</td>
+        <td>
+            <span *ngIf="error.user">
+                {{ error.user.name }} ({{ error.user.email }})
+            </span>
+        </td>
+        <td>{{ error.line }}</td>
+        <td>{{ error.request_url }}</td>
+        <td>{{ error.created_at | date: 'short' }}</td>
+    </tr>
+</table>
+
+<div *ngIf="!isLoading && errors !== null && errors.length === 0">
+    No errors found
+</div>

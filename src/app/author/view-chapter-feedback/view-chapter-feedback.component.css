@@ -1,0 +1,38 @@
+#book-pane {
+    position: absolute; top: 54px; bottom: 12px; left: 0; width: calc(40% - 3px); overflow-x: hidden; overflow-y: hidden;
+}
+
+#book-pane-header {
+    border-bottom: solid 1px var(--border-color); padding-bottom: 4px; margin-bottom: 6px; position: absolute;
+    top: 0; width: calc(100% - 6px); left: 6px;
+}
+
+.chapter-title {
+    text-align: center;
+}
+
+.chapter-version {
+    font-size: 0.75rem; text-align: center; margin: -24px 0 12px 0; font-weight: bold; color: var(--header-color-light);
+}
+
+.title {
+    color: var(--header-color); text-align: center; font-weight: 500; font-size: 22px; margin-bottom: 0;
+}
+
+.version {
+    color: var(--header-alt-color); font-size: 14px; margin-bottom: 20px; text-align: center;
+    font-weight: bold; font-size: 13.5px; margin-bottom: 48px;
+}
+
+#book-content-pane {
+    position: absolute; overflow-x: hidden; overflow-y: auto; top: 42px; bottom: 0; width: 100%; padding: 6px;
+}
+
+#feedback-pane {
+    position: absolute; top: 54px; bottom: 6px; left: calc(40% + 3px); width: calc(60% - 12px); overflow-x: hidden; overflow-y: hidden;
+}
+
+#book-content-pane-content {
+    background-color: var(--site-bg-color); min-height: 100%; padding: 6px 12px 24px 12px; border-radius: 8px; box-shadow: 0px 0px 4px 2px #D6D6D6;
+    margin-bottom: 24px; margin-top: 2px;
+}

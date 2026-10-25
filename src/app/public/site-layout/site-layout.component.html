@@ -1,0 +1,46 @@
+<header id="site-header" class="no-select">
+    <div class="site-wrapper">
+        <div id="site-header-inner">
+            <div id="site-title">BookReviews</div>
+
+            <menu id="site-menu">
+                <a *ngIf="userRole === 'reader'" [routerLink]="['/reader/my-books']"><i class="fa fa-book"></i>My Books</a>
+                <a *ngIf="userRole === 'reader'" [routerLink]="['/reader/my-books']" [queryParams]="{ view: 'unreviewed-chapters' }"><i class="fa fa-file-text"></i>Unreviewed Chapters</a>
+                <a *ngIf="userRole === 'reader'" [routerLink]="['/reader/account']"><i class="fa fa-user"></i>My Account</a>
+                <a *ngIf="userRole === 'author'" [routerLink]="['/author/books']"><i class="fa fa-book"></i>Books</a>
+                <a *ngIf="userRole === 'author'" [routerLink]="['/author/account']"><i class="fa fa-user"></i>My Account</a>
+                <a *ngIf="userRole === 'admin'" [routerLink]="['/admin/books']"><i class="fa fa-book"></i>Books</a>
+                <a *ngIf="userRole === 'admin'" [routerLink]="['/admin/users']"><i class="fa fa-user"></i>Users</a>
+                <a *ngIf="userRole === 'admin'" [routerLink]="['/admin/error-log']"><i class="fa fa-exclamation-triangle"></i>Error Log</a>
+            </menu>
+
+            <div *ngIf="username !== null" id="site-user">
+
+                <i class="fa fa-user"></i>{{ username }}
+
+                <div id="font-size-button"><i class="fa fa-font"></i>
+                    Text Size: {{ fontSizeService.fontSizeLabel }}
+                    <div id="font-size-pane">
+                        <input type="range" list="font-size-list" min="0" max="3" step="1" [value]="fontSizeService.fontSizeIndex" (change)="changeFontSize($event)">
+                    </div>
+                </div>
+
+                <button (click)="logout()"><i class="fa fa-sign-out"></i>Log Out</button>
+            </div>
+        </div>
+    </div>
+
+</header>
+
+<main id="site-main">
+    <div class="site-wrapper">
+        <router-outlet></router-outlet>
+    </div>
+</main>
+
+<datalist id="font-size-list">
+    <option value="0"></option>
+    <option value="1"></option>
+    <option value="2"></option>
+    <option value="3"></option>
+</datalist>

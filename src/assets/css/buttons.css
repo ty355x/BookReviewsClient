@@ -1,0 +1,151 @@
+/* Base Button */
+
+.btn {
+    color: var(--button-text-color); background-color: var(--button-bg-color); border: none;
+    padding: 7px 20px; border-radius: 2px; cursor: pointer; margin-right: 4px; font-size: 1rem; display: inline-flex; align-items: center;
+}
+
+.btn i.fa {
+    margin-right: 10px; font-size: 1.15rem;
+}
+
+.btn i.fa-square-o, .btn i.fa-edit {
+    position: relative; top: 1px;
+}
+
+.btn:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+.btn:active {
+    background-color: var(--button-active-bg-color);
+}
+
+.btn:disabled {
+    background-color: var(--button-disabled-bg-color);
+}
+
+/* Medium Button */
+
+.btn-med {
+    color: var(--button-med-text-color); border-color: var(--button-med-border-color); background-color: var(--button-med-bg-color);
+}
+
+.btn-med:hover {
+    background-color: var(--button-med-hover-bg-color);
+}
+
+.btn-med:active {
+    background-color: var(--button-med-active-bg-color);
+}
+
+/** Small button **/
+
+.btn-small-text {
+    font-size: 0.9rem;
+}
+
+.btn-sm {
+    padding: 4px 12px;
+}
+
+/** Extra Small Button **/
+
+.btn-xsm {
+    padding: 4px 6px; font-size: 0.9em;
+}
+
+/** Flat Button **/
+
+.btn-flat, .btn-table {
+    background-color: transparent; color: var(--button-flat-text-color); border: none; padding: 6px 8px; border-radius: 6px;
+}
+
+.btn-flat:hover, .btn-table:hover {
+    background-color: var(--button-flat-hover-bg-color);
+}
+
+.btn-flat:active, .btn-table:active {
+    background-color: var(--button-flat-active-bg-color);
+}
+
+.btn-flat:disabled {
+    background-color: transparent; color: rgb(192, 192, 192); cursor: default;
+}
+
+/** Outline Button **/
+
+.btn-outline {
+    color: rgb(43, 137, 192); padding: 6px 12px; border-radius: 4px; font-weight: 500; color: var(--text-color); border: solid 1px var(--border-color);
+    background-color: transparent;
+}
+
+.btn-outline.light {
+    background-color: var(--pane-bg-color);
+}
+
+.btn-outline .fa {
+    color: rgb(30, 114, 184);
+}
+
+.btn-outline:disabled .fa {
+    color: rgb(181, 189, 195);
+}
+
+.btn-outline:hover {
+    background-color: rgb(208, 221, 237); border: solid 1px rgb(140, 189, 218);
+}
+
+.btn-outline:active {
+    background-color: rgb(198, 220, 230);
+}
+
+.btn-outline:disabled {
+    border-color: rgb(201, 201, 201); color: rgb(169, 169, 169); background-color: transparent;
+}
+
+/* Table, Flat, Nav, Toolbar Buttons */
+
+.table .btn-flat, .nav .btn, .toolbar .btn-flat, .page-header .btn, .btn-toolbar {
+    color: var(--button-flat-text-color); background-color: transparent; border: none; padding: 8px 8px;
+    border-radius: 5px; text-decoration: none;
+}
+
+.table .btn-flat:hover, .nav .btn:hover, .toolbar .btn-flat:hover, .page-header .btn:hover, .btn-toolbar:hover {
+    background-color: var(--button-flat-hover-bg-color); border: none;
+}
+
+.table .btn-flat:active, .nav .btn:active, .toolbar .btn-flat:active, .page-header .btn:active, .btn-toolbar:active {
+    background-color: var(--button-flat-active-bg-color);
+}
+
+.table .btn-flat:disabled, .nav .btn:disabled, .toolbar .btn-flat:disabled, .page-header .btn:disabled, .btn-toolbar:disabled {
+    background-color: transparent; color: var(--button-flat-disabled-text-color); cursor: auto;
+}
+
+.nav .btn {
+    font-size: 0.65rem; background-color: transparent; color: var(--button-table-text-color); border: none; position: relative; top: 1px;
+}
+
+.nav .btn:hover {
+    border: none;
+}
+
+.page-header .btn {
+    padding: 8px;
+}
+
+/** Button Light **/
+
+.btn-light {
+    color: var(--button-light-text-color); background-color: var(--button-light-bg-color); padding: 6px 12px;
+}
+
+.btn-light:hover {
+    background-color: var(--button-light-hover-bg-color);
+}
+
+.btn-light:active {
+    background-color: var(--button-light-active-bg-color);
+}
+

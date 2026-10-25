@@ -1,0 +1,27 @@
+.dialog {
+    padding: 0; min-width: 320px; max-height: 90vh;
+}
+
+.dialog-title {
+    padding: 12px 12px 12px 12px; border-bottom: solid 1px var(--border-color);
+}
+
+.dialog h1 {
+    font-size: 1.25rem; margin: 12px 0;
+}
+
+.dialog-title h1 {
+    margin: 0 !important;
+}
+
+.dialog-body {
+    padding: 12px; max-height: 400px; overflow-y: scroll;
+}
+
+.dialog-footer {
+    padding: 8px; text-align: right; background-color: rgb(230, 230, 230);
+}
+
+.cdk-global-scrollblock {
+    background-color: transparent; position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: 999;
+}

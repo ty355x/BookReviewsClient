@@ -1,0 +1,28 @@
+#feedback-form {
+    margin: 4px 4px 8px 4px; padding: 8px 8px 8px 8px; border-radius: 4px; border: solid 1px var(--border-color);
+    background-color: var(--site-bg-color);
+}
+
+#feedback-form-entries {
+    margin: 0; padding: 4px 4px 0 4px; overflow-y: auto;
+}
+
+#feedback-form h2 {
+    margin: 0 0 12px 4px; font-size: 1.35rem; font-weight: 600;
+}
+
+#feedback-form .textarea {
+    width: 100% !important; height: 20rem !important;
+}
+
+#feedback-form .form-field-error {
+    margin-top: 12px; margin-bottom: 16px;
+}
+
+#feedback-form.response-feedback-form .textarea {
+    height: 12rem !important;
+}
+
+#feedback-form.response-feedback-form {
+    box-shadow: var(--pane-shadow);
+}

@@ -1,0 +1,31 @@
+
+#content-pane {
+    position: absolute; top: 54px; left: 4px; bottom: 4px; width: calc((100% / 2) - 4px);
+    overflow-x: hidden; overflow-y: auto; border-right: solid 2px var(--border-color);
+}
+
+#book-header {
+    margin: -12px 6px 6px 6px;
+}
+
+#guidance-pane {
+    background-color: var(--pane-bg-color); padding: 12px; border-radius: 6px; margin: -6px 6px 6px 6px;
+}
+
+#guidance-pane h2 {
+    font-size: 1.05em; margin: 12px 0 6px 0;
+}
+
+#content-pane-content {
+    background-color: var(--site-bg-color); min-height: 100%; padding: 12px; border-radius: 8px; margin: 6px;
+    box-shadow: 0px 0px 14px 2px #D6D6D6;
+}
+
+#content-pane-content h1 {
+    margin-top: 6px; margin-bottom: 18px;
+}
+
+#feedback-pane {
+    position: absolute; left: calc((100% / 2) + 4px); top: 54px; bottom: 4px; width: calc((100% / 2) - 8px);
+    overflow-x: hidden; overflow-y: hidden;
+}

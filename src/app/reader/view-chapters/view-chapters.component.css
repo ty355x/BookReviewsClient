@@ -1,0 +1,103 @@
+.chapter-list-container {
+    max-width: 1200px; margin: 0 auto;
+}
+
+.chapter-list-container .toolbar {
+    margin-top: 0px; border-bottom: none;
+}
+
+.chapter-list-header {
+    display: flex; margin: 12px 0 24px 0; align-items: stretch; column-gap: 4px;
+}
+
+/** Book Pane **/
+
+.book-pane {
+    display: flex; align-items: center; justify-content: center; padding: 12px; flex-grow: 1;
+    background-color: var(--pane-bg-light-color); border-radius: 4px;
+}
+
+.book-pane-icon {
+    margin-right: 16px; padding: 6px 10px; border-radius: 8px;
+}
+
+.book-pane-icon .fa {
+    color: var(--header-alt-color); font-size: 1.45rem;
+}
+
+.book-pane-details {
+    text-align: left;
+}
+
+.book-title {
+    display: flex; align-items: center; flex-grow: 1;
+}
+
+.book-pane-details h1 {
+    margin: 0 0 0 0; color: var(--header-alt-color); font-size: 1.1rem;
+}
+
+.book-pane-details .book-pane-authors {
+    color: rgb(76, 76, 76); font-weight: 600; font-size: 0.9rem; margin: -4px 0 0 0;
+}
+
+/** Guidance Pane **/
+
+.guidance-pane {
+    text-align: center; flex-grow: 1; background-color: var(--pane-bg-light-color); padding: 12px; border-radius: 4px;
+}
+
+.guidance-pane h1 {
+    text-align: center; margin: 0 0 8px 0; font-size: 1.15rem; font-weight: 600;
+}
+
+h1.chapter-list-title {
+    text-align: center; margin: 0 0 24px 0; font-size: 1.15em; font-weight: 500;
+}
+
+/** Chapter List **/
+
+.chapter-list th h1 {
+    margin: 0 0 16px 0;
+}
+
+.chapter-index {
+    padding-right: 32px; font-weight: 600; color: rgb(104, 115, 130);
+}
+
+.chapter-title {
+    width: 60%;
+}
+
+.feedback-status {
+    padding: 4px 10px; border-radius: 2px; display: inline-flex; align-items: center; width: 132px; font-size: 0.85rem;
+    justify-content: center;
+}
+
+.feedback-status .fa {
+    padding-right: 12px;
+}
+
+.feedback-submitted {
+    background-color: var(--success-light-bg-color);
+}
+
+.no-feedback {
+    background-color: var(--warn-light-bg-color);
+}
+
+.no-feedback .fa {
+    color: rgb(162, 79, 79) !important;
+}
+
+.stats-cell {
+    padding-left: 0 !important; padding-right: 0 !important;
+}
+
+.stat {
+    padding: 2px 6px; border-radius: 2px;
+}
+
+.stat.highlight {
+    background-color: var(--warn-light-bg-color);
+}

@@ -1,0 +1,42 @@
+<header *ngIf="books" class="page-header">
+    <h1>Books</h1>
+    <button *ngIf="!isLoading && !error" class="btn" (click)="addBook()"><i class="fa fa-plus-square"></i>Add Book</button>
+</header>
+
+<div *ngIf="isLoading">
+    <app-loading></app-loading>
+</div>
+
+<div *ngIf="!isLoading && error">
+    <h1>Books</h1>
+    <app-page-error [error]="error"></app-page-error>
+</div>
+
+<div *ngIf="!isLoading">
+
+    <div *ngIf="books">
+        <div *ngIf="books !== null && books.length > 0">
+            <table class="table">
+                <tr>
+                    <th>Title</th>
+                    <th>Authors</th>
+                    <th>Chapters</th>
+                    <th></th>
+                </tr>
+                <tr *ngFor="let book of books">
+                    <td><i class="fa fa-book table-icon"></i>{{ book.title }}</td>
+                    <td>{{ book.authors }}</td>
+                    <td>{{ book.chapters_count }}</td>
+                    <td class="actions">
+                        <button class="btn btn-table" (click)="editBook(book.id)"><i class="fa fa-edit"></i>Edit</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div *ngIf="books === null || books.length === 0">
+            <p>No books found</p>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="book-header-pane" [class.centered]="centered" [class.plain]="plain">
+
+    <div class="book-header-pane-inner">
+
+        <div *ngIf="!centered" class="book-icon-pane">
+            <div class="book-icon-pane-bg">
+                <i class="fa fa-book"></i>
+            </div>
+        </div>
+
+        <div class="book-details-pane">
+            <div class="book-title"><i *ngIf="centered" class="fa fa-book"></i>{{ book.title }}</div>
+            <div class="book-authors">{{ book.authors }}</div>
+        </div>
+    </div>
+
+</div>

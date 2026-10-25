@@ -1,0 +1,72 @@
+#site-header {
+    background-color: var(--site-header-bg-color); height: 48px;
+}
+
+#site-header-inner {
+    height: 48px; display: flex; align-items: center;
+}
+
+#site-title {
+    font-size: 1.25rem; color: var(--site-header-title-color); margin: 0 0 0 12px; padding: 0; font-weight: 700; text-transform: uppercase;
+}
+
+#site-menu {
+    flex-grow: 1; margin: 0 12px 0 24px; text-align: left; padding-left: 0;
+}
+
+#site-menu a:link, #site-menu a:visited {
+    color: var(--site-header-menu-link-color); display: inline-block; margin: 0 0 0 0; text-decoration: none;
+    text-transform: none; padding: 6px 12px; border-radius: 5px;
+}
+
+#site-menu a:active, #site-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+#site-menu i.fa {
+    margin-right: 10px;
+}
+
+#site-user {
+    color: var(--site-header-menu-link-color); margin: 0 12px 0 0;
+}
+
+#site-user i.fa {
+    margin-right: 10px;
+}
+
+#site-user button {
+    border: none; background-color: transparent; cursor: pointer; color: var(--site-header-menu-link-color); padding: 6px 12px; border-radius: 4px;
+    font-size: 1rem; margin: 0;
+}
+
+#site-user button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+#site-user button:active {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.feedback-list-icon {
+    position: relative; top: 1px;
+}
+
+/** Font Size Button **/
+
+#font-size-button {
+    display: inline-block; position: relative; padding: 6px 12px; border-radius: 6px;
+}
+
+#font-size-button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+#font-size-pane {
+    position: absolute; top: 30px; left: -12px; background-color: white; padding: 24px; border: solid 1px var(--border-color); border-radius: 4px;
+    display: none; z-index: 1000;
+}
+
+#font-size-button:hover #font-size-pane {
+    display: block;
+}

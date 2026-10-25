@@ -1,0 +1,61 @@
+#filter-pane-header {
+    position: absolute; top: 2px; left: 0; right: 4px; height: 42px; margin: 0; background-color: var(--pane-bg-light-color);
+    border-top-left-radius: 2px; border-top-right-radius: 2px; padding: 0 12px 2px 12px;
+}
+
+#filter-pane-header-inner {
+    padding: 6px 0 6px 0; border-bottom: solid 1px rgb(186, 199, 207); height: 42px;
+}
+
+#filter-pane-header-inner .btn-flat {
+    font-size: 0.9rem;
+}
+
+#filter-pane {
+    position: absolute; left: 0; top: 44px; right: 4px; bottom: 2px; margin: 0; background-color: var(--pane-bg-light-color);
+    border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;
+}
+
+#filter-pane.no-header {
+    top: 0;
+}
+
+#filter-pane h1 {
+    margin-top: 0; font-size: 1.25rem; margin: 24px 12px 24px 12px;
+}
+
+#filter-pane-content {
+    position: absolute; left: 0; top: 60px; right: 0; bottom: 0; overflow-x: hidden; overflow-y: auto;
+}
+
+#filter-pane-content h2 {
+    font-size: 1.05rem; margin: 12px 12px 4px 12px; position: relative;
+}
+
+#filter-pane-content h2 .fa {
+    margin-right: 6px; position: relative; font-size: 0.95rem;
+}
+
+#filter-pane-content .fa {
+    font-size: 0.9rem; margin-right: 0; position: relative; top: -2px; color: var(--header-alt-color); width: 16px;
+}
+
+#filter-pane .btn {
+    padding: 4px 12px; margin: 0 0 0 8px;
+}
+
+#filter-pane .btn:hover {
+    background-color: transparent; color: rgb(93, 169, 255);
+}
+
+#filter-pane .btn .fa {
+    margin-right: 6px; position: relative; top: 0; color: var(--header-alt-color);
+}
+
+.btn.book-filter-pane-book {
+    font-weight: 600;
+}
+
+.btn.book-filter-pane-chapter {
+    margin-left: 18px !important;
+}

@@ -1,0 +1,67 @@
+<div class="pane-container">
+
+    <div *ngIf="view === 'loading'" class="pane">
+
+        <h1>Create Account</h1>
+
+        <div *ngIf="isLoading && !error">
+            <app-loading></app-loading>
+        </div>
+
+        <div *ngIf="!isLoading && error" class="fail">
+            {{ error }}
+        </div>
+
+    </div>
+
+    <div *ngIf="view === 'signup'" class="pane">
+
+        <h1>Create Account</h1>
+
+        <form>
+            <div class="form-field">
+                <label>Name</label>
+                <input name="name" type="text" class="textbox" [(ngModel)]="account.name" [disabled]="isLoading">
+                <span *ngIf="formErrors.name" class="form-field-error">{{ formErrors.name }}</span>
+            </div>
+
+            <div class="form-field">
+                <label>Email</label>
+                <input name="email" type="text" class="textbox" [(ngModel)]="account.email" [disabled]="isLoading">
+                <span *ngIf="formErrors.email" class="form-field-error">{{ formErrors.email }}</span>
+            </div>
+
+            <div class="form-field">
+                <label>Password</label>
+                <input name="password" type="password" class="textbox" [(ngModel)]="account.password" [disabled]="isLoading">
+                <span *ngIf="formErrors.password" class="form-field-error">{{ formErrors.password }}</span>
+            </div>
+
+            <div class="form-field">
+                <label>Confirm Password</label>
+                <input name="password_confirmation" type="password" class="textbox" [(ngModel)]="account.password_confirmation" [disabled]="isLoading">
+                <span *ngIf="formErrors.password_confirmation" class="form-field-error">{{ formErrors.password_confirmation }}</span>
+            </div>
+
+            <div *ngIf="error" class="fail">
+                {{ error }}
+            </div>
+
+            <div class="form-footer">
+                <button type="submit" class="btn" (click)="createAccount()" [disabled]="isLoading">CREATE ACCOUNT</button>
+            </div>
+        </form>
+
+    </div>
+
+    <div *ngIf="view === 'success'" class="pane">
+
+        <h1 style="margin-bottom: 32px">Email Verification Required</h1>
+
+        <p>Thank you for creating a BookReviews account.</p>
+        <p>In order to activate your account, we need to verify your email address.</p>
+        <p>Please check your email.</p>
+
+    </div>
+
+</div>

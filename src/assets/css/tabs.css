@@ -1,0 +1,16 @@
+.tabs {
+    margin: 0 0 24px 0; padding: 0; border-bottom: solid 1px var(--border-color); list-style: none;
+}
+
+.tabs li {
+    display: inline-block; margin-right: 6px; padding: 6px 6px 8px 6px; border-bottom: solid 3px rgb(201, 201, 201); position: relative; top: 1px;
+    font-weight: 600; font-size: 1.05rem;
+}
+
+.tabs li:hover {
+    cursor: pointer; border-bottom-color: rgb(135, 193, 229);
+}
+
+.tabs li.selected {
+    border-bottom-color: rgb(113, 173, 211);
+}

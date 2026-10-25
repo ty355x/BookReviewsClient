@@ -1,0 +1,7 @@
+.error-pane {
+    color: var(--fail-color); font-weight: bold;
+}
+
+.error-pane h1 {
+    margin-top: 0; color: var(--fail-color);
+}

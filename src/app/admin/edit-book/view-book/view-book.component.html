@@ -1,0 +1,88 @@
+<div *ngIf="isLoading">
+    <app-loading></app-loading>
+</div>
+
+<div *ngIf="!isLoading && error">
+    <app-page-error [error]="error"></app-page-error>
+</div>
+
+<div *ngIf="!isLoading && !error">
+
+    <ul class="toolbar">
+        <li><button class="btn btn-flat" (click)="backToBooks()"><i class="fa fa-chevron-circle-left"></i>Back to Book List</button></li>
+        <li><button class="btn btn-flat" (click)="editBookProperties()"><i class="fa fa-edit"></i>Edit Book Properties</button></li>
+    </ul>
+
+    <div class="pane">
+
+        <app-book-header [book]="book"></app-book-header>
+
+        <div class="pane-section no-border signup-url">
+            <header class="page-header">
+                <h1>SignUp URL</h1>
+                <button *ngIf="!book.signup_code" class="btn" (click)="makeSignupUrl(book.id)"><i class="fa fa-plus-square"></i>Create SignUp URL</button>
+                <button *ngIf="book.signup_code" class="btn" (click)="deleteSignupUrl(book.id)"><i class="fa fa-plus-square"></i>Delete SignUp URL</button>
+            </header>
+            <div class="signup-url-link">
+                <span *ngIf="book.signup_code">{{ appPath + '/book-signup?signupCode=' + book.signup_code }}</span>
+                <span *ngIf="!book.signup_code">No signup URL created for the current book</span>
+            </div>
+        </div>
+
+        <div class="pane-section guidance">
+            <h1>Book Guidance</h1>
+            <div *ngIf="book.guidance" [innerHTML]="book.guidance | nl2br"></div>
+            <div *ngIf="!book.guidance">No guidance provided</div>
+        </div>
+
+        <div class="pane-section">
+            <header class="page-header">
+                <h1 style="margin-top: 0;">Chapters</h1>
+                <div style="flex-grow: 1;">
+                    <button class="btn" (click)="addChapter()"><i class="fa fa-plus-square"></i>Add Chapter</button>
+                </div>
+                <div class="info" style="margin-top: 0; padding: 4px">
+                    Drag chapter rows to reorder
+                </div>
+            </header>
+
+            <div *ngIf="book && chapters && chapters.length > 0">
+
+                <table class="table">
+                    <tr>
+                        <th>Index</th>
+                        <th>Title</th>
+                        <th>Versions</th>
+                        <th>Auto Title</th>
+                        <th></th>
+                    </tr>
+                    <tbody cdkDropList (cdkDropListDropped)="dropChapter($event)">
+                        <tr *ngFor="let chapter of chapters" class="drag-row" cdkDrag>
+                            <td class="hide-when-dragging">{{ chapter.chapter_index }}</td>
+                            <td class="show-when-dragging"><i class="fa fa-file-text-o table-icon"></i>{{ chapter.title }}</td>
+                            <td class="hide-when-dragging">{{ chapter.content_count }}</td>
+
+                            <td class="hide-when-dragging">
+                                <span *ngIf="chapter.auto_title"><i class="fa fa-check-circle success" style="margin-right: 10px;"></i>True</span>
+                                <span *ngIf="!chapter.auto_title"><i class="fa fa-times-circle fail" style="margin-right: 10px;"></i>False</span>
+                            </td>
+
+                            <td class="actions hide-when-dragging">
+                                <button class="btn btn-flat" (click)="editChapterTitle(chapter)"><i class="fa fa-edit"></i>Edit Title</button>
+                                <button class="btn btn-flat" (click)="editChapterContent(chapter.id)"><i class="fa fa-edit"></i>Edit Content</button>
+                                <button class="btn btn-flat" (click)="viewFeedback(chapter.id)"><i class="fa fa-external-link"></i>View Feedback</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div *ngIf="book && (chapters === null || chapters.length === 0)">
+                <p>No chapters found</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>

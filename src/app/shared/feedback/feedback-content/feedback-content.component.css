@@ -1,0 +1,118 @@
+#content-pane-outer {
+    background-color: var(--pane-bg-color); position: absolute; top: 0; left: 2px; right: 6px; bottom: 0; border-radius: 2px;
+}
+
+#content-pane-outer h1 {
+    font-size: 1.25em; font-weight: 600; margin: 0;
+}
+
+#content-pane-header {
+    position: absolute; top: 0; left: 0; right: 0; padding: 0 2px 0 2px; height: 46px;
+}
+
+#content-pane-header-inner {
+    margin: 0 6px; padding: 8px 0 0 0; height: 44px;
+}
+
+#content-pane-header-inner .btn-flat {
+    font-size: 0.9rem;
+}
+
+#content-pane {
+    position: absolute; left: 2px; right: 2px; top: 44px; bottom: 2px; overflow: hidden scroll; padding: 6px;
+}
+
+/** Book Header **/
+
+#book-header {
+    background-color: rgb(243, 243, 243); border-radius: 4px;
+}
+
+#book-header-inner {
+    padding: 10px 0;
+}
+
+/** Book Chapter List **/
+
+#book-chapter-list-outer {
+    margin: 6px 0 0 0; border: solid 1px var(--border-color); border-radius: var(--pane-border-radius);
+}
+
+#book-chapter-list-inner {
+    margin: 0; padding: 6px 0 6px 0; display: flex; justify-content: center;
+}
+
+#book-chapter-list h1 {
+    text-align: center; margin: 6px 0 0 0;
+}
+
+#book-chapter-list .btn {
+    margin-right: 2px; font-size: 0.85rem; padding: 4px 8px; border-radius: 2px;
+}
+
+#book-chapter-list .btn .fa {
+    margin: 0; padding: 0;
+}
+
+#book-chapter-list .btn.highlight {
+    background-color: rgb(228, 228, 228); cursor: default;
+}
+
+/** Guidance Pane **/
+
+#guidance-pane {
+    padding: 0 0 24px 0; text-align: center; margin: 0; border-bottom: solid 1px var(--border-color);
+}
+
+#guidance-pane h1 {
+    margin: 24px;
+}
+
+/** Content Pane **/
+
+#content-pane-content {
+    padding: 0 12px 48px 12px;
+}
+
+#content-pane-content h1 {
+    text-align: center; margin: 24px 0; font-size: 1.35rem;
+}
+
+/** Reader Mode **/
+
+#content-pane-wrapper.reader-mode {
+    position: fixed; left: 0; right: 0; top: 0; bottom: 0; z-index: 100; background-color: rgb(54, 54, 54);
+}
+
+.reader-mode #content-pane {
+    position: absolute; left: 12px; right: 12px; top: 12px; bottom: 12px; border-radius: 3px;
+    background-color: var(--site-bg-color); box-shadow: none;
+}
+
+.reader-mode #book-header {
+    padding: 12px 0 0 0;
+}
+
+.reader-mode #book-header-inner {
+    margin: 0; padding: 1px 0;
+}
+
+.reader-mode #guidance-pane {
+    margin-top: 12px;
+}
+
+#reader-mode-header {
+    padding: 2px 6px; margin: 6px 2px; position: absolute; top: 0; right: 0;
+}
+
+.reader-mode #content-pane {
+    overflow-y: hidden; padding: 12px;
+}
+
+.reader-mode #reader-mode-content {
+    position: absolute; top: 44px; left: 0; right: 0; bottom: 0; overflow-y: auto; padding: 0 12px 6px 12px;
+}
+
+.reader-mode #content-pane-content {
+    min-height: calc(100vh - 228px);
+}

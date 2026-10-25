@@ -1,0 +1,33 @@
+<div class="dialog" style="width: 400px">
+    <div class="dialog-title">
+        <h1>
+            <span *ngIf="isCreating">Add Book</span>
+            <span *ngIf="!isCreating" >Edit Book</span>
+        </h1>
+    </div>
+
+    <div class="dialog-body">
+        <div class="form-field">
+            <label>Title</label>
+            <input class="textbox" [(ngModel)]="book.title" style="width: 100%" [disabled]="isLoading">
+            <span *ngIf="errors.title" class="form-field-error">{{ errors.title }}</span>
+        </div>
+
+        <div class="form-field">
+            <label>Authors</label>
+            <input class="textbox" [(ngModel)]="book.authors" style="width: 100%" [disabled]="isLoading">
+            <span *ngIf="errors.authors" class="form-field-error">{{ errors.authors }}</span>
+        </div>
+
+        <div class="form-field">
+            <label>Book Guidance</label>
+            <textarea class="textarea" [(ngModel)]="book.guidance"  style="width: 100%; height: 10em" [disabled]="isLoading"></textarea>
+            <span *ngIf="errors.guidance" class="form-field-error">{{ errors.guidance }}</span>
+        </div>
+    </div>
+
+    <div class="dialog-footer">
+        <button class="btn" (click)="save()" [disabled]="isLoading">Save</button>
+        <button class="btn" (click)="cancel()" [disabled]="isLoading">Cancel</button>
+    </div>
+</div>

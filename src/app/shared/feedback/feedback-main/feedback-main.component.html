@@ -1,0 +1,13 @@
+<div id="feedback-main-pane" [class.user-reader]="context !== null && context.user.role === 'reader'">
+    <div *ngIf="context !== null" id="left-pane" [class.filter-visible]="context.showFilter">
+        <app-feedback-filter *ngIf="context.showFilter" [context]="context" (close)="showFilterPane(false)">
+        </app-feedback-filter>
+        <app-feedback-content *ngIf="!context.showFilter" [context]="context" (showFilter)="showFilterPane(true)">
+        </app-feedback-content>
+    </div>
+
+    <div *ngIf="context !== null" id="feedback-pane" [class.filter-visible]="context.showFilter">
+        <app-feedback-list [context]="context"></app-feedback-list>
+    </div>
+
+</div>

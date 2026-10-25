@@ -1,0 +1,66 @@
+<div *ngIf="isLoading">
+    <h1>User Profile</h1>
+    <app-loading></app-loading>
+</div>
+
+<div *ngIf="!isLoading">
+    <ul class="toolbar">
+        <li><button class="btn btn-flat" (click)="backToUsers()"><i class="fa fa-chevron-circle-left"></i>Back to Users List</button></li>
+        <li><button *ngIf="!error" class="btn btn-flat" (click)="editUserProfile()"><i class="fa fa-edit"></i>Edit Profile</button></li>
+    </ul>
+</div>
+
+<div *ngIf="!isLoading && error">
+    <h1>User Profile</h1>
+    <app-page-error [error]="error"></app-page-error>
+</div>
+
+<div *ngIf="!isLoading && !error && user" class="pane">
+    <h1>User Profile</h1>
+
+    <div class="details">
+        <div class="details-field">
+            <label>Name</label>
+            <span>{{ user.name }}</span>
+        </div>
+        <div class="details-field">
+            <label>Email</label>
+            <span>{{ user.email }}</span>
+        </div>
+        <div class="details-field">
+            <label>Role</label>
+            <span>
+                <i *ngIf="user.role === 'admin'" class="fa fa-user admin" style="margin-right: 12px;"></i>
+                <i *ngIf="user.role === 'author'" class="fa fa-user author " style="margin-right: 12px;"></i>
+                <i *ngIf="user.role === 'reader'" class="fa fa-user reader " style="margin-right: 12px;"></i>
+                {{ user.role }}
+            </span>
+        </div>
+    </div>
+
+    <div *ngIf="user.role === 'author' || user.role === 'reader'">
+
+        <header class="page-header">
+            <h1>Assigned Books</h1>
+            <button class="btn" (click)="editAssignedBooks()"><i class="fa fa-edit"></i>Edit Assigned Books</button>
+        </header>
+
+        <div *ngIf="!assignedBooks || assignedBooks.length === 0">
+            No assigned books found
+        </div>
+
+        <div *ngIf="assignedBooks && assignedBooks.length > 0">
+            <table class="table">
+                <tr>
+                    <th>Title</th>
+                    <th>Authors</th>
+                </tr>
+                <tr *ngFor="let book of assignedBooks">
+                    <td><i class="fa fa-book table-icon"></i>{{ book.title }}</td>
+                    <td>{{ book.authors }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>

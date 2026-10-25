@@ -1,0 +1,11 @@
+.assigned-books-pane {
+    float: left; width: 49%; padding: 0 0 10px 0; margin-right: 0.5%; box-sizing: border-box; margin-top: 0;
+}
+
+.available-books-pane {
+    float: left; width: 49%; padding: 0 0 10px 0; box-sizing: border-box; margin-top: 0;
+}
+
+.assigned-books-pane h2, .available-books-pane h2 {
+    margin-top: 0;
+}

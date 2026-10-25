@@ -1,0 +1,29 @@
+.ql-toolbar {
+    border: solid 1px var(--border-color); border-top-left-radius: 2px; border-top-right-radius: 2px; background-color: var(--pane-bg-color);
+    padding: 4px;
+}
+
+.is-chapter-content .ql-toolbar {
+    border: solid 2px var(--border-color); padding: 8px;
+}
+
+.ql-container {
+    border: solid 1px var(--border-color); border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; background-color: var(--pane-bg-color);
+    font-size: 1rem;
+}
+
+.is-chapter-content .ql-container {
+    border: solid 2px var(--border-color); border-top: none;
+}
+
+.rich-text-editor-large {
+    min-height: 10rem;
+}
+
+.rich-text-editor-medium {
+    min-height: 6rem; max-height: 10rem; overflow-y: auto;
+}
+
+.rich-text-editor-small {
+    min-height: 7.5rem; max-height: 12rem; overflow: auto;
+}

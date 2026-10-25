@@ -1,0 +1,15 @@
+#not-found {
+    margin: 10vh 12px 12px 12px; text-align: center; font-size: 16px;
+}
+
+h1 {
+    color: var(--fail-color); font-size: 24px;
+}
+
+p {
+    margin: 48px 0 48px 0;
+}
+
+.btn {
+    font-size: 15px;
+}
